@@ -1,36 +1,41 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addWoodItem } from "../redux/features/addWoodSlice";
 
 // Інтерфейс для елемента деревини
 interface WoodItem {
-  id: number;
   diametr: number;
-  sort: string;
+  name: string;
   amount: number;
-  poroda: string;
+  id: number;
 }
 
 export const AddWood = () => {
+  const dispatch = useDispatch();
+
   const [woodItems, setWoodItems] = useState<WoodItem[]>([]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const diametr = form.diametr.value;
-    const sort = form.sort.value;
     const amount = form.amount.value;
     const poroda = form.poroda.value;
 
     // Створюємо новий об'єкт для елемента деревини з отриманими значеннями
     const newItem: WoodItem = {
-      id: woodItems.length + 1,
+
       diametr: Number(diametr),
-      sort,
       amount: Number(amount),
-      poroda,
+        name: { poroda:},
+    id: Date.now(),
     };
 
-    // Додаємо новий елемент деревини до масиву
-    setWoodItems((prevWoodItems) => [...prevWoodItems, newItem]);
+    // Додаємо новий елемент деревини до масиву через React state
+    setWoodItems((prevItems) => [...prevItems, newItem]);
+
+    // Додаємо новий елемент деревини до масиву через Redux
+    dispatch(addWoodItem(newItem));
 
     // Очищуємо поля форми після додавання
     form.reset();
@@ -57,7 +62,7 @@ export const AddWood = () => {
       <input type="submit" value="Додати" />
       <h2>Додані елементи:</h2>
       <ul>
-        {woodItems.map((item) => (
+        {woodItems.map((item: WoodItem) => (
           <li key={item.id}>
             Діаметр: {item.diametr}, порода: {item.sort}, кількість: {item.amount}, Штрихкод: {item.poroda}
           </li>

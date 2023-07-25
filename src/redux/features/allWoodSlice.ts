@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import woodData from "../components/fakeWoodData/wood.json";
+import woodData from "../../components/fakeWoodData/wood.json";
 
 interface WoodItem {
   diametr: number;
@@ -7,6 +7,7 @@ interface WoodItem {
   amount: number;
   id: number;
 }
+
 
 interface AllWoodState {
   woodItems: WoodItem[];

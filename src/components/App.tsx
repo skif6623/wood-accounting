@@ -4,8 +4,12 @@ import { HomePage } from "../Pages/HomePage";
 import { AddWood } from "../Pages/AddWood";
 import { WoodProcesing } from "../Pages/WoodProcesing";
 import { AllWood } from "../Pages/AllWood";
+import { Provider } from "react-redux";
+import store from "../redux/store";
+
 export const App = () => {
-	return (
+  return (
+    <Provider store={store}>
 		<div>
 			<nav>
 				<NavLink to="/">Головна сторінка</NavLink>
@@ -19,6 +23,7 @@ export const App = () => {
 				<Route path="/woodProcesing" element={<WoodProcesing />} />
 				<Route path="/allItems" element={<AllWood />} />
 			</Routes>
-		</div>
+		  </div>
+	</Provider>
 	);
 };
