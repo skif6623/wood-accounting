@@ -18,7 +18,7 @@ export const allWoodSlice = createSlice({
 	reducers: {},
 	extraReducers: builder => {
 		builder.addCase(getAllWood.fulfilled, (state, action) => {
-			state = action.payload;
+			return action.payload;
 		});
 	},
 });
