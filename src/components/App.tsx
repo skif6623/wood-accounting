@@ -1,9 +1,9 @@
 import React from "react";
 import {Routes, NavLink, Route} from "react-router-dom";
-import {HomePage} from "../pages/HomePage";
-import {AddWood} from "../pages/AddWood";
-import {WoodProcesing} from "../pages/WoodProcesing";
-import {AllWood} from "../pages/AllWood";
+import {HomePage} from "../Pages/HomePage";
+import {AddWood} from "../Pages/AddWood";
+import {WoodProcesing} from "../Pages/WoodProcesing";
+import {AllWood} from "../Pages/AllWood";
 export const App = () => {
 	return (
 		<div>
