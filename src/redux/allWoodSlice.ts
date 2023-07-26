@@ -34,9 +34,21 @@ export interface WoodItem {
   id: string;
 }
 
+export interface DescItem {
+  width: number;
+  height: number;
+  length: number;
+  amount: number;
+  type: string;
+  id: string;
+}
+
+
+
+
 export interface AllWoodState {
   roundwoodArray: WoodItem[];
-  boardArray: WoodItem[];
+  boardArray: DescItem[];
 }
 
 const initialState: AllWoodState = {
@@ -51,7 +63,7 @@ export const allWoodSlice = createSlice({
     setRoundwoodArray: (state, action: PayloadAction<WoodItem[]>) => {
       state.roundwoodArray = action.payload;
     },
-    setBoardArray: (state, action: PayloadAction<WoodItem[]>) => {
+    setBoardArray: (state, action: PayloadAction<DescItem[]>) => {
       state.boardArray = action.payload;
     },
   },
