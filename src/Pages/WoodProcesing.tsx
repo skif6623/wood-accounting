@@ -16,6 +16,7 @@ export const WoodProcessing = () => {
   const [showBoard, setShowBoard] = useState(false);
   const [roundwoodFilter, setRoundwoodFilter] = useState("");
   const [boardFilter, setBoardFilter] = useState("");
+  const [inputAmount, setInputAmount] = useState("");
 
   // Ваші початкові масиви кругляка та дошки
   const initialRoundwoodData: WoodItem[] = woodData;
@@ -43,6 +44,22 @@ export const WoodProcessing = () => {
     setBoardFilter(event.target.value);
   };
 
+  // Функція обробки зміни кількості елементу
+  const handleItemAmountChange = (item: WoodItem | DescItem) => {
+    // Перевірте, чи ви використовуєте потрібний тип, і відповідно оновіть значення
+    if ("diametr" in item) {
+      const updatedArray = roundwoodArray.map((el) =>
+        el.id === item.id ? { ...el, amount: el.amount - parseInt(inputAmount) || 0 } : el
+      );
+      dispatch(setRoundwoodArray(updatedArray));
+    } else if ("width" in item) {
+      const updatedArray = boardArray.map((el) =>
+        el.id === item.id ? { ...el, amount: el.amount - parseInt(inputAmount) || 0 } : el
+      );
+      dispatch(setBoardArray(updatedArray));
+    }
+  };
+
   return (
     <div>
       {!showRoundwood && !showBoard && <h2>Що різати будемо?</h2>}
@@ -60,10 +77,12 @@ export const WoodProcessing = () => {
           <input type="text" value={roundwoodFilter} onChange={handleRoundwoodFilterChange} placeholder="Фільтр по id" />
           <ul>
             {roundwoodArray
-              .filter((item: any) => item.id.includes(roundwoodFilter))
-              .map((item: any) => (
+              .filter((item) => item.id.includes(roundwoodFilter))
+              .map((item) => (
                 <li key={item.id}>
                   Штрихкод: {item.id} Діаметр: {item.diametr}, Порода: {item.name}, Кількість: {item.amount}
+                  <input type="number" value={inputAmount} onChange={(e) => setInputAmount(e.target.value)} />
+                  <button onClick={() => handleItemAmountChange(item)}>Застосувати</button>
                 </li>
               ))}
           </ul>
@@ -76,10 +95,12 @@ export const WoodProcessing = () => {
           <input type="text" value={boardFilter} onChange={handleBoardFilterChange} placeholder="Фільтр по id" />
           <ul>
             {boardArray
-              .filter((item: any) => item.id.includes(boardFilter))
-              .map((item: any) => (
+              .filter((item) => item.id.includes(boardFilter))
+              .map((item) => (
                 <li key={item.id}>
                   Ширина: {item.width}, Висота: {item.height}, Довжина: {item.length}, Кількість: {item.amount}, Тип: {item.type}
+                  <input type="number" value={inputAmount} onChange={(e) => setInputAmount(e.target.value)} />
+                  <button onClick={() => handleItemAmountChange(item)}>Застосувати</button>
                 </li>
               ))}
           </ul>

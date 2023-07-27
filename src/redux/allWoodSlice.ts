@@ -70,4 +70,4 @@ export const allWoodSlice = createSlice({
 });
 
 export const { setRoundwoodArray, setBoardArray } = allWoodSlice.actions;
-export const allWoodReducer = allWoodSlice.reducer;
+export default allWoodSlice.reducer;
