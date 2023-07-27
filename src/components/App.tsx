@@ -1,9 +1,9 @@
 import React from "react";
 import {Routes, NavLink, Route} from "react-router-dom";
-import {HomePage} from "../pages/HomePage";
-import {AddWood} from "../pages/AddWood";
-import {WoodProcesing} from "../pages/WoodProcesing";
-import {AllWood} from "../pages/AllWood";
+import {HomePage} from "../Pages/HomePage";
+import {AddWood} from "../Pages/AddWood";
+import {WoodProcessing} from "../Pages/WoodProcesing";
+import {AllWood} from "../Pages/AllWood";
 export const App = () => {
 	return (
 		<div>
@@ -16,7 +16,7 @@ export const App = () => {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/add" element={<AddWood />} />
-				<Route path="/woodProcesing" element={<WoodProcesing />} />
+				<Route path="/woodProcesing" element={<WoodProcessing />} />
 				<Route path="/allItems" element={<AllWood />} />
 			</Routes>
 		</div>
