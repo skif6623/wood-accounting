@@ -1,10 +1,47 @@
 import styled from "styled-components";
 
-export const StorageDesc = styled.div`
-	display: flex;
-	border: 2px solid green;
+export const StorageTable = styled.div`
+	box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.12), 2px 2px 2px 2px rgba(0, 0, 0, 0.06), 4px 4px 6px rgba(0, 0, 0, 0.16);
 `;
 
-export const StorageItem = styled.p`
+export const DesctiptionList = styled.div`
+	display: flex;
+	margin-bottom: 15px;
+	padding: 15px;
+
+	background-color: #fbfbfc;
+	border: 1px solid #e0e5ea;
+`;
+
+export const DesctiptionItem = styled.p`
+	flex-basis: 25%;
+`;
+
+export const RoundWoodList = styled.ul`
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	padding: 0 15px;
+`;
+
+export const RoundWoodItem = styled.li`
+	display: flex;
+	padding: 15px;
+
+	border: 1px solid #e0e5ea;
+	border-radius: 4px;
+
+	transform: scale(1);
+	transition: all 250ms ease;
+
+	&:hover {
+		background-color: #ebf9ec;
+		border: 1px solid #3ecba7;
+
+		transform: scale(1.03);
+	}
+`;
+
+export const RoundWoodText = styled.p`
 	flex-basis: 25%;
 `;
