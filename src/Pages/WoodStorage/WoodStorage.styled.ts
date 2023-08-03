@@ -14,7 +14,7 @@ export const DesctiptionList = styled.div`
 `;
 
 export const DesctiptionItem = styled.p`
-	flex-basis: 25%;
+	flex-basis: 20%;
 `;
 
 export const RoundWoodList = styled.ul`
@@ -22,26 +22,4 @@ export const RoundWoodList = styled.ul`
 	flex-direction: column;
 	gap: 5px;
 	padding: 0 15px;
-`;
-
-export const RoundWoodItem = styled.li`
-	display: flex;
-	padding: 15px;
-
-	border: 1px solid #e0e5ea;
-	border-radius: 4px;
-
-	transform: scale(1);
-	transition: all 250ms ease;
-
-	&:hover {
-		background-color: #ebf9ec;
-		border: 1px solid #3ecba7;
-
-		transform: scale(1.03);
-	}
-`;
-
-export const RoundWoodText = styled.p`
-	flex-basis: 25%;
 `;
