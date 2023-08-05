@@ -1,12 +1,12 @@
-import React, {FC} from "react";
+import React, { FC } from 'react';
 
-import {StyledButton} from "./Button.styled";
+import { Btn } from './Button.styled';
 
 interface ButtonTypes {
-	children: React.ReactNode;
-	to: string;
+  children: React.ReactNode;
+  type: 'button' | 'reset' | 'submit' | undefined;
 }
 
-export const Button: FC<ButtonTypes> = ({children, to}) => {
-	return <StyledButton to={to}>{children}</StyledButton>;
+export const Button: FC<ButtonTypes> = ({ children, type }) => {
+  return <Btn type={type}>{children}</Btn>;
 };

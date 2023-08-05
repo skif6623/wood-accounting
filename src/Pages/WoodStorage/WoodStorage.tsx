@@ -3,8 +3,8 @@ import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { boardSelector, roundWoodSelector } from '../../redux/selectors';
 import { getRoundWood, getBoard } from '../../redux/operations';
 
-import { Button } from '../../components/Button/Button';
-import { RWoodList } from '../../components/RoundWoodList/RoundWoodList';
+import { Link } from '../../components/Link/Link';
+import { RoundWoodItem } from '../../components/RoundWoodList/RoundWoodItem';
 
 import {
   StorageTable,
@@ -27,9 +27,9 @@ export const WoodStorage: FC = () => {
   return (
     <>
       <StorageTable>
-        <Button to="round">Кругляк</Button>
-        <Button to="board">Дошка</Button>
-        <Button to="pallets">Палети</Button>
+        <Link to="round">Кругляк</Link>
+        <Link to="board">Дошка</Link>
+        <Link to="pallets">Палети</Link>
         <DesctiptionList>
           {desctiption.map((el, index) => {
             return <DesctiptionItem key={index}>{el}</DesctiptionItem>;
@@ -38,7 +38,7 @@ export const WoodStorage: FC = () => {
         <RoundWoodList>
           {roundWood.map(({ name, diametr, code, amount, id }) => {
             return (
-              <RWoodList
+              <RoundWoodItem
                 key={id}
                 name={name}
                 diametr={diametr}

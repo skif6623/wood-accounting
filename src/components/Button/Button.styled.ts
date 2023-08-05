@@ -1,28 +1,28 @@
-import styled from "styled-components";
-import {NavLink} from "react-router-dom";
+import styled from 'styled-components';
 
-export const StyledButton = styled(NavLink)`
-	display: inline-block;
-	padding: 15px 20px;
+export const Btn = styled.button`
+  padding: 10px 20px;
 
-	text-decoration: none;
-	color: black;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 
-	border: 2px solid transparent;
+  background-color: #3ecba7;
+  border: 2px solid transparent;
 
-	transition: all 250ms ease;
+  transition: background-color 500ms ease, color 250ms ease, border 250ms ease;
 
-	&:hover {
-		color: #3ecba7;
+  &:hover,
+  &:focus {
+    color: #3ecba7;
 
-		background-color: #ebf9ec;
-		border: 2px solid #3ecba7;
-	}
+    background-color: #ffffff;
+    border: 2px solid #3ecba7;
+  }
 
-	&.active {
-		color: #3ecba7;
+  &:active {
+    color: #ffffff;
 
-		background-color: #ebf9ec;
-		border: 2px solid #3ecba7;
-	}
+    background-color: #3ecba7;
+  }
 `;
