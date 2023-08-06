@@ -46,20 +46,25 @@ export const Link = styled(NavLink)`
   font-weight: 500;
 
   color: #ffffff;
+  border-radius: 50px;
 
-  transition: background-color 250ms ease, color 250ms ease,
-    border-radius 250ms ease;
+  transition: background-color 250ms ease, color 250ms ease;
 
   &:hover,
   &:focus {
     color: #3bb3b8;
 
     background-color: white;
-    border-radius: 50px;
   }
 
   &:active {
     background-color: #e6e0e0;
+  }
+
+  &.active {
+    color: #3bb3b8;
+
+    background-color: white;
   }
 
   @media screen and (max-width: 320px) {
@@ -86,5 +91,9 @@ export const CloseIcon = styled(IoMdClose)`
 
     background-color: #ffffff;
     border-radius: 50px;
+  }
+
+  &:active {
+    background-color: #e6e0e0;
   }
 `;

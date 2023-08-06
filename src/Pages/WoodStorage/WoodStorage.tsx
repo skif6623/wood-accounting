@@ -5,6 +5,7 @@ import { getRoundWood, getBoard } from '../../redux/operations';
 
 import { Link } from '../../components/Link/Link';
 import { RoundWoodItem } from '../../components/RoundWoodList/RoundWoodItem';
+import { Outlet } from 'react-router-dom';
 
 import {
   StorageTable,
@@ -30,6 +31,7 @@ export const WoodStorage: FC = () => {
         <Link to="round">Кругляк</Link>
         <Link to="board">Дошка</Link>
         <Link to="pallets">Палети</Link>
+        <Outlet />
         <DesctiptionList>
           {desctiption.map((el, index) => {
             return <DesctiptionItem key={index}>{el}</DesctiptionItem>;
