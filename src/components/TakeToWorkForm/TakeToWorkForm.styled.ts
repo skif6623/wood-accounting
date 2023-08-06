@@ -30,6 +30,7 @@ export const MinusIcon = styled(AiOutlineMinusCircle)`
   &:hover,
   &:focus {
     fill: #157f64;
+    cursor: pointer;
     transform: scale(1.2);
   }
 
@@ -52,6 +53,7 @@ export const PlusIcon = styled(AiOutlinePlusCircle)`
   &:hover,
   &:focus {
     fill: #157f64;
+    cursor: pointer;
     transform: scale(1.2);
   }
 

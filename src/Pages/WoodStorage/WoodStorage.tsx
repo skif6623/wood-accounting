@@ -1,39 +1,39 @@
 import React, { FC, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { roundWoodSelector } from '../../redux/selectors';
+// import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+// import { roundWoodSelector } from '../../redux/selectors';
 // import { boardSelector } from '../../redux/selectors';
-import { getRoundWood, getBoard } from '../../redux/operations';
+// import { getRoundWood, getBoard } from '../../redux/operations';
 
 import { Link } from '../../components/Link/Link';
-import { RoundWoodItem } from '../../components/RoundWoodList/RoundWoodItem';
+// import { RoundWoodItem } from '../../components/RoundWoodItem/RoundWoodItem';
 import { Outlet } from 'react-router-dom';
 
 import {
   StorageTable,
-  DesctiptionList,
-  DesctiptionItem,
-  RoundWoodList,
+  // DesctiptionList,
+  // DesctiptionItem,
+  // RoundWoodList,
 } from './WoodStorage.styled';
 
 export const WoodStorage: FC = () => {
-  const dispatch = useAppDispatch();
-  const roundWood = useAppSelector(roundWoodSelector);
-  const desctiption = ['Назва', 'Діаметр', 'Кількість', 'Штрихкод'];
+  // const dispatch = useAppDispatch();
+  // const roundWood = useAppSelector(roundWoodSelector);
+  // const desctiption = ['Назва', 'Діаметр', 'Кількість', 'Штрихкод'];
   // const board = useAppSelector(boardSelector);
 
-  useEffect(() => {
-    dispatch(getRoundWood());
-    dispatch(getBoard());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getRoundWood());
+  //   dispatch(getBoard());
+  // }, [dispatch]);
 
   return (
     <>
       <StorageTable>
-        <Link to="round">Кругляк</Link>
+        <Link to="/">Кругляк</Link>
         <Link to="board">Дошка</Link>
         <Link to="pallets">Палети</Link>
         <Outlet />
-        <DesctiptionList>
+        {/* <DesctiptionList>
           {desctiption.map((el, index) => {
             return <DesctiptionItem key={index}>{el}</DesctiptionItem>;
           })}
@@ -51,7 +51,7 @@ export const WoodStorage: FC = () => {
               />
             );
           })}
-        </RoundWoodList>
+        </RoundWoodList> */}
       </StorageTable>
     </>
   );

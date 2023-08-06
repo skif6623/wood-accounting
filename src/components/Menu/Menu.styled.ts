@@ -10,6 +10,7 @@ export const MenuLayout = styled.div<MenuProps>`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 999;
 
   height: 100vh;
   padding-top: 40px;

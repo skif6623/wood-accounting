@@ -18,6 +18,7 @@ export const Btn = styled.button`
 
     background-color: #ffffff;
     border: 2px solid #3ecba7;
+    cursor: pointer;
   }
 
   &:active {
