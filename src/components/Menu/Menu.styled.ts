@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { IoMdClose } from 'react-icons/io';
 
-interface MenuProps {
+export interface MenuProps {
   open: boolean;
 }
 

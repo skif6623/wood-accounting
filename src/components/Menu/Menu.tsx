@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 import { MenuLayout, Navigation, Link, CloseIcon } from './Menu.styled';
 
-export const Menu = () => {
-  const [isOpen, setIsOpen] = useState(true);
+import type { HeaderTypes } from '../Header/Header';
 
-  const handleClickToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
+export const Menu: FC<HeaderTypes> = ({ isOpen, toggle }) => {
   return (
     <MenuLayout open={isOpen}>
       <Navigation>
@@ -19,7 +15,7 @@ export const Menu = () => {
       </Navigation>
       <CloseIcon
         onClick={() => {
-          handleClickToggle();
+          toggle();
         }}
       />
     </MenuLayout>

@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { boardSelector, roundWoodSelector } from '../../redux/selectors';
+import { roundWoodSelector } from '../../redux/selectors';
+// import { boardSelector } from '../../redux/selectors';
 import { getRoundWood, getBoard } from '../../redux/operations';
 
 import { Link } from '../../components/Link/Link';

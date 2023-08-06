@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BiUserCircle } from 'react-icons/bi';
 
+import type { MenuProps } from '../Menu/Menu.styled';
+
 export const HeaderLayout = styled.header`
   display: flex;
   justify-content: space-between;
@@ -71,4 +73,9 @@ export const IconWrapper = styled.div`
   &:active {
     background-color: #e6e0e0;
   }
+`;
+
+export const LogoImage = styled.img<MenuProps>`
+  transform: ${({ open }) => (open ? 'translate(70%)' : 'translate(0)')};
+  transition: transform 500ms ease;
 `;

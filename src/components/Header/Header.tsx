@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
@@ -8,17 +8,27 @@ import {
   IconWrapper,
   OpenMenuIcon,
   AuthIcon,
+  LogoImage,
 } from './Header.styled';
 
-export const Header = () => {
+export interface HeaderTypes {
+  isOpen: boolean;
+  toggle: () => void;
+}
+
+export const Header: FC<HeaderTypes> = ({ isOpen, toggle }) => {
   return (
     <HeaderLayout>
       <LogoWrapper>
-        <IconWrapper>
+        <IconWrapper
+          onClick={() => {
+            toggle();
+          }}
+        >
           <OpenMenuIcon />
         </IconWrapper>
         <NavLink to="/">
-          <img width="300px" src={logo} alt="logo" />
+          <LogoImage open={isOpen} width="300px" src={logo} alt="logo" />
         </NavLink>
       </LogoWrapper>
       <AuthIcon />
