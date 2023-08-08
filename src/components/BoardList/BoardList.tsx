@@ -6,7 +6,6 @@ import { getBoard } from '../../redux/operations';
 export const BoardList: FC = () => {
   const dispatch = useAppDispatch();
   const board = useAppSelector(boardSelector);
-  console.log(board);
 
   useEffect(() => {
     dispatch(getBoard());

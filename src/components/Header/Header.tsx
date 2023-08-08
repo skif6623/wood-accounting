@@ -28,7 +28,7 @@ export const Header: FC<HeaderTypes> = ({ isOpen, toggle }) => {
           <OpenMenuIcon />
         </IconWrapper>
         <NavLink to="/">
-          <LogoImage open={isOpen} width="300px" src={logo} alt="logo" />
+          <LogoImage open={isOpen} src={logo} alt="logo" />
         </NavLink>
       </LogoWrapper>
       <AuthIcon />

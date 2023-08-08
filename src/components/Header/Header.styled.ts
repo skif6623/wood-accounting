@@ -8,7 +8,8 @@ export const HeaderLayout = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
+  margin-bottom: 20px;
+  padding: 10px 15px;
 
   background: rgb(66, 225, 153);
   background: linear-gradient(
@@ -16,12 +17,20 @@ export const HeaderLayout = styled.header`
     rgba(66, 225, 153, 1) 0%,
     rgba(59, 179, 184, 1) 100%
   );
+
+  @media screen and (min-width: 768px) {
+    padding: 20px 30px;
+  }
 `;
 
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
+
+  @media screen and (min-width: 768px) {
+    gap: 30px;
+  }
 `;
 
 export const OpenMenuIcon = styled(GiHamburgerMenu)`
@@ -76,6 +85,16 @@ export const IconWrapper = styled.div`
 `;
 
 export const LogoImage = styled.img<MenuProps>`
-  transform: ${({ open }) => (open ? 'translate(70%)' : 'translate(0)')};
+  width: 150px;
+
   transition: transform 500ms ease;
+
+  @media screen and (min-width: 350px) {
+    width: 180px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 300px;
+
+    transform: ${({ open }) => (open ? 'translate(70%)' : 'translate(0)')};
+  }
 `;

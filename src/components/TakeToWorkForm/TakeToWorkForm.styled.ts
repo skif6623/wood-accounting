@@ -4,7 +4,15 @@ import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
 
 export const Form = styled.form`
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const InputWrapper = styled.div`
+  display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 export const Input = styled.input`

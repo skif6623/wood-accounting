@@ -1,57 +1,21 @@
-import React, { FC, useEffect } from 'react';
-// import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-// import { roundWoodSelector } from '../../redux/selectors';
-// import { boardSelector } from '../../redux/selectors';
-// import { getRoundWood, getBoard } from '../../redux/operations';
+import React, { FC } from 'react';
 
 import { Link } from '../../components/Link/Link';
-// import { RoundWoodItem } from '../../components/RoundWoodItem/RoundWoodItem';
 import { Outlet } from 'react-router-dom';
 
-import {
-  StorageTable,
-  // DesctiptionList,
-  // DesctiptionItem,
-  // RoundWoodList,
-} from './WoodStorage.styled';
+import { StorageTable, LinkWrap } from './WoodStorage.styled';
 
 export const WoodStorage: FC = () => {
-  // const dispatch = useAppDispatch();
-  // const roundWood = useAppSelector(roundWoodSelector);
-  // const desctiption = ['Назва', 'Діаметр', 'Кількість', 'Штрихкод'];
-  // const board = useAppSelector(boardSelector);
-
-  // useEffect(() => {
-  //   dispatch(getRoundWood());
-  //   dispatch(getBoard());
-  // }, [dispatch]);
-
   return (
     <>
       <StorageTable>
-        <Link to="/">Кругляк</Link>
-        <Link to="board">Дошка</Link>
-        <Link to="pallets">Палети</Link>
+        <LinkWrap>
+          <Link to="/">Кругляк</Link>
+          <Link to="board">Дошка</Link>
+          <Link to="pallets">Палети</Link>
+        </LinkWrap>
+
         <Outlet />
-        {/* <DesctiptionList>
-          {desctiption.map((el, index) => {
-            return <DesctiptionItem key={index}>{el}</DesctiptionItem>;
-          })}
-        </DesctiptionList>
-        <RoundWoodList>
-          {roundWood.map(({ name, diametr, code, amount, id }) => {
-            return (
-              <RoundWoodItem
-                key={id}
-                name={name}
-                diametr={diametr}
-                code={code}
-                amount={amount}
-                id={id}
-              />
-            );
-          })}
-        </RoundWoodList> */}
       </StorageTable>
     </>
   );

@@ -7,11 +7,9 @@ export const Menu: FC<HeaderTypes> = ({ isOpen, toggle }) => {
   return (
     <MenuLayout open={isOpen}>
       <Navigation>
-        <Link to="/">Головна</Link>
+        <Link to="/">Склад</Link>
         <Link to="/add">Приход кругляку</Link>
-        <Link to="/bar">Панель</Link>
         <Link to="/inProgress">В роботі</Link>
-        <Link to="/storage">Склад</Link>
       </Navigation>
       <CloseIcon
         onClick={() => {

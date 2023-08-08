@@ -1,7 +1,13 @@
 import React, { FormEvent, useState, FC } from 'react';
 import { Button } from '../Button/Button';
 
-import { Input, Form, PlusIcon, MinusIcon } from './TakeToWorkForm.styled';
+import {
+  Input,
+  Form,
+  InputWrapper,
+  PlusIcon,
+  MinusIcon,
+} from './TakeToWorkForm.styled';
 
 interface TakeToWorkProps {
   name: string;
@@ -47,9 +53,12 @@ export const TakeToWorkForm: FC<TakeToWorkProps> = ({ name }) => {
         handleSubmit(e);
       }}
     >
-      <MinusIcon onClick={() => decrement()} />
-      <Input type="text" value={inWork} onChange={handleChange} />
-      <PlusIcon onClick={() => increment()} />
+      <InputWrapper>
+        <MinusIcon onClick={() => decrement()} />
+        <Input type="text" value={inWork} onChange={handleChange} />
+        <PlusIcon onClick={() => increment()} />
+      </InputWrapper>
+
       <Button type="submit">Взяти в роботу</Button>
     </Form>
   );

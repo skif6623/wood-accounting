@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 
 export const DesctiptionList = styled.div`
-  display: flex;
-  margin-bottom: 15px;
-  padding: 15px;
-
-  background-color: #fbfbfc;
-  border: 1px solid #e0e5ea;
+  display: none;
 `;
 
 export const DesctiptionItem = styled.p`
@@ -16,6 +11,6 @@ export const DesctiptionItem = styled.p`
 export const List = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
   padding: 0 15px;
 `;
