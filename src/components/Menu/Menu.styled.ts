@@ -6,11 +6,24 @@ export interface MenuProps {
   open: boolean;
 }
 
+export const Backdrop = styled.div<MenuProps>`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: ${({ open }) => (!open ? 'transparent' : '#6e6b648f')};
+
+  pointer-events: ${({ open }) => !open && 'none'};
+  transition: background-color 500ms ease;
+`;
+
 export const MenuLayout = styled.div<MenuProps>`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 999;
 
   height: 100vh;
   padding-top: 40px;

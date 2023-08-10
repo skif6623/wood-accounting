@@ -1,7 +1,16 @@
 import React, { FC, useEffect, useCallback } from 'react';
-import { MenuLayout, Navigation, Link, CloseIcon } from './Menu.styled';
+import { createPortal } from 'react-dom';
+import {
+  Backdrop,
+  MenuLayout,
+  Navigation,
+  Link,
+  CloseIcon,
+} from './Menu.styled';
 
 import type { HeaderTypes } from '../Header/Header';
+
+const menuRoot = document.querySelector('#menu-root') as HTMLDivElement;
 
 export const Menu: FC<HeaderTypes> = ({ isOpen, toggle }) => {
   const handleKeyDown = useCallback(
@@ -23,26 +32,26 @@ export const Menu: FC<HeaderTypes> = ({ isOpen, toggle }) => {
   }, [isOpen, handleKeyDown]);
 
   const handleClick = (e: any) => {
-    const targetMenu = e.target;
-    if (e.target !== targetMenu) {
-      console.log('закрито');
-    } else {
-      console.log('відкрито');
+    if (e.currentTarget === e.target) {
+      toggle();
     }
   };
 
-  return (
-    <MenuLayout open={isOpen} onClick={handleClick}>
-      <Navigation>
-        <Link to="/">Склад</Link>
-        <Link to="/add">Приход кругляку</Link>
-        <Link to="/inProgress">В роботі</Link>
-      </Navigation>
-      <CloseIcon
-        onClick={() => {
-          toggle();
-        }}
-      />
-    </MenuLayout>
+  return createPortal(
+    <Backdrop open={isOpen} onClick={handleClick}>
+      <MenuLayout open={isOpen}>
+        <Navigation>
+          <Link to="/">Склад</Link>
+          <Link to="/add">Приход кругляку</Link>
+          <Link to="/inProgress">В роботі</Link>
+        </Navigation>
+        <CloseIcon
+          onClick={() => {
+            toggle();
+          }}
+        />
+      </MenuLayout>
+    </Backdrop>,
+    menuRoot
   );
 };
