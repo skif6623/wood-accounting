@@ -19,6 +19,7 @@ export const HeaderLayout = styled.header`
   );
 
   @media screen and (min-width: 768px) {
+    margin-bottom: 0;
     padding: 20px 30px;
   }
 `;

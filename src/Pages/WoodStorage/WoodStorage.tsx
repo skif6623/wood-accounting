@@ -8,13 +8,12 @@ import { StorageTable, LinkWrap } from './WoodStorage.styled';
 export const WoodStorage: FC = () => {
   return (
     <>
+      <LinkWrap>
+        <Link to="/">Кругляк</Link>
+        <Link to="board">Дошка</Link>
+        <Link to="pallets">Палети</Link>
+      </LinkWrap>
       <StorageTable>
-        <LinkWrap>
-          <Link to="/">Кругляк</Link>
-          <Link to="board">Дошка</Link>
-          <Link to="pallets">Палети</Link>
-        </LinkWrap>
-
         <Outlet />
       </StorageTable>
     </>

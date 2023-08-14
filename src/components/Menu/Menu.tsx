@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useCallback } from 'react';
+import React, { FC, useEffect, useCallback, MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 import {
   Backdrop,
@@ -31,7 +31,7 @@ export const Menu: FC<HeaderTypes> = ({ isOpen, toggle }) => {
     };
   }, [isOpen, handleKeyDown]);
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.currentTarget === e.target) {
       toggle();
     }
@@ -44,6 +44,8 @@ export const Menu: FC<HeaderTypes> = ({ isOpen, toggle }) => {
           <Link to="/">Склад</Link>
           <Link to="/add">Приход кругляку</Link>
           <Link to="/inProgress">В роботі</Link>
+          <Link to="/addWood">Додати</Link>
+          <Link to="/woodProcesing">В процесі</Link>
         </Navigation>
         <CloseIcon
           onClick={() => {

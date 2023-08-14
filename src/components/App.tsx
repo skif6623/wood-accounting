@@ -1,8 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { AddWood } from '../Pages/AddWood';
-// import {WoodProcessing} from "../Pages/WoodProcesing";
-// import {AllWood} from "../Pages/AllWood";
 import { WoodStorage } from '../Pages/WoodStorage/WoodStorage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RoundWoodList } from './RoundWoodList/RoundWoodList';

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Btn = styled.button`
-  padding: 10px 20px;
+  width: 100%;
+  height: 50px;
 
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
@@ -25,5 +26,10 @@ export const Btn = styled.button`
     color: #ffffff;
 
     background-color: #3ecba7;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 50px;
   }
 `;

@@ -14,7 +14,8 @@ export const Item = styled.li`
     2px 2px 2px 2px rgba(0, 0, 0, 0.06), 4px 4px 6px rgba(0, 0, 0, 0.16);
 
   transform: scale(1);
-  transition: all 250ms ease;
+  transition: background-color 250ms ease, border 250ms ease,
+    transform 250ms ease;
 
   &:hover {
     background-color: #ebf9ec;
@@ -22,15 +23,22 @@ export const Item = styled.li`
 
     transform: scale(1.03);
   }
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+    padding: 10px;
+  }
 `;
 
 export const TextWrap = styled.div`
   display: flex;
   justify-content: space-between;
 
-  /* @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     flex-basis: 20%;
-  } */
+  }
 `;
 
 export const Title = styled.span`

@@ -9,6 +9,7 @@ export const RoundWoodItem: FC<roundWoodItem> = ({
   diametr,
   code,
   amount,
+  id,
 }) => {
   return (
     <>
@@ -29,7 +30,7 @@ export const RoundWoodItem: FC<roundWoodItem> = ({
           <Title>Штрихкод:</Title>
           <p>{code}</p>
         </TextWrap>
-        <TakeToWorkForm name={name} />
+        <TakeToWorkForm name={name} id={id} />
       </Item>
     </>
   );

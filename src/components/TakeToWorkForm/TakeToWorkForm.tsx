@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, FC } from 'react';
+import React, { FormEvent, ChangeEvent, useState, FC } from 'react';
 import { Button } from '../Button/Button';
 
 import {
@@ -11,12 +11,13 @@ import {
 
 interface TakeToWorkProps {
   name: string;
+  id: string;
 }
 
-export const TakeToWorkForm: FC<TakeToWorkProps> = ({ name }) => {
+export const TakeToWorkForm: FC<TakeToWorkProps> = ({ name, id }) => {
   const [inWork, setInWork] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     if (inputValue === '' || /^([0-9]+|0)$/.test(inputValue)) {
       setInWork(inputValue);
@@ -30,6 +31,7 @@ export const TakeToWorkForm: FC<TakeToWorkProps> = ({ name }) => {
     }
     console.log(inWork);
     console.log(name);
+    console.log(id);
   };
 
   const increment = () => {

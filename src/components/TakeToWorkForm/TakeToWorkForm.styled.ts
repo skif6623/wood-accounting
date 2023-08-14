@@ -7,6 +7,11 @@ export const Form = styled.form`
   flex-wrap: wrap;
   flex-direction: column;
   gap: 10px;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
 `;
 
 export const InputWrapper = styled.div`
