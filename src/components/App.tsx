@@ -17,7 +17,9 @@ export const App = () => {
           <Route path="pallets" element={<h1>Піддони</h1>} />
         </Route>
         <Route path="add" element={<AddWood />} />
-        <Route path="chooseWood" element={<ChooseWoodType />} />
+        <Route path="/choose-wood" element={<ChooseWoodType />} />
+        <Route path="/round-wood" element={<div>Залупа з сиром</div>} />
+        <Route path="/board-wood" element={<div>Дошка з сиром</div>} />
       </Route>
     </Routes>
   );

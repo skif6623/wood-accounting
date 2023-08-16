@@ -37,13 +37,19 @@ export const Menu: FC<HeaderTypes> = ({ isOpen, toggle }) => {
     }
   };
 
+  const click = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (e.target instanceof HTMLAnchorElement) {
+      toggle();
+    }
+  };
+
   return createPortal(
     <Backdrop open={isOpen} onClick={handleClick}>
       <MenuLayout open={isOpen}>
-        <Navigation>
+        <Navigation onClick={click}>
           <Link to="/">Склад</Link>
           <Link to="/add">Приход кругляку</Link>
-          <Link to="/chooseWood">Приход</Link>
+          <Link to="/choose-wood">Приход</Link>
           <Link to="/inProgress">В роботі</Link>
           <Link to="/addWood">Додати</Link>
           <Link to="/woodProcesing">В процесі</Link>

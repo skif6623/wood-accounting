@@ -6,8 +6,12 @@ import { CardWrapper } from './ChooseWoodType.styled';
 export const ChooseWoodType = () => {
   return (
     <CardWrapper>
-      <WoodCard icon="#icon-tree">Кругляк</WoodCard>
-      <WoodCard icon="#icon-board">Дошка</WoodCard>
+      <WoodCard to="/round-wood" icon="#icon-tree">
+        Кругляк
+      </WoodCard>
+      <WoodCard to="/board-wood" icon="#icon-board">
+        Дошка
+      </WoodCard>
     </CardWrapper>
   );
 };
