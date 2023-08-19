@@ -33,8 +33,8 @@ export const Card = styled(NavLink)`
   align-items: center;
   justify-content: space-evenly;
   padding: 20px;
-  width: 200px;
-  height: 300px;
+  width: 270px;
+  height: 320px;
 
   text-decoration: none;
 

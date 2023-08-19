@@ -13,8 +13,7 @@ export const Btn = styled.button`
 
   transition: background-color 500ms ease, color 250ms ease, border 250ms ease;
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: #3ecba7;
 
     background-color: #ffffff;
@@ -29,7 +28,7 @@ export const Btn = styled.button`
   }
 
   @media screen and (min-width: 768px) {
-    width: 100px;
     height: 50px;
+    width: 100px;
   }
 `;

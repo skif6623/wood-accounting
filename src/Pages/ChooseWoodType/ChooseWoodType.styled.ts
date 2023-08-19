@@ -13,6 +13,6 @@ export const CardWrapper = styled.div`
     gap: 40px;
   }
   @media screen and (min-width: 1000px) {
-    margin-top: 50px;
+    gap: 60px;
   }
 `;
