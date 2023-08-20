@@ -24,6 +24,12 @@ export const AddingFormInput = styled.input`
     outline: none;
     border: 2px solid #3ecba7;
   }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 // export const Form = styled.form`

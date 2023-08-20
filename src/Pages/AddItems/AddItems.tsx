@@ -2,6 +2,8 @@ import { useState, FormEvent } from 'react';
 import { Container } from '../../components/Container/Container';
 import { ReusableInput } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
+import { Table } from '../../components/Table/Table';
+
 import type { roundWoodItem } from '../../redux/roundWoodSlice';
 import { nanoid } from 'nanoid';
 
@@ -9,7 +11,7 @@ import {
   AddingForm,
   AddingFormLabel,
   AddingFormInput,
-} from './AddItemsForm.styled';
+} from './AddItems.styled';
 
 export const AddItemsForm = () => {
   const [diametr, setDiametr] = useState('');
@@ -31,7 +33,7 @@ export const AddItemsForm = () => {
     const newItem: roundWoodItem = {
       diametr: +diametr,
       amount: +amount,
-      code: +code,
+      code,
       name,
       id: nanoid(),
     };
@@ -47,36 +49,34 @@ export const AddItemsForm = () => {
   };
 
   return (
-    <Container>
-      <AddingForm onSubmit={handleSubmit}>
-        <AddingFormLabel>
-          Діаметр
-          <ReusableInput action={setDiametr} count={diametr} />
-        </AddingFormLabel>
+    <>
+      <Container>
+        <AddingForm onSubmit={handleSubmit}>
+          <AddingFormLabel>
+            Діаметр
+            <ReusableInput action={setDiametr} count={diametr} />
+          </AddingFormLabel>
 
-        <AddingFormLabel>
-          Кількість
-          <ReusableInput action={setAmount} count={amount} />
-        </AddingFormLabel>
+          <AddingFormLabel>
+            Кількість
+            <ReusableInput action={setAmount} count={amount} />
+          </AddingFormLabel>
 
-        <AddingFormLabel>
-          Порода
-          <AddingFormInput type="text" name="sort" />
-        </AddingFormLabel>
+          <AddingFormLabel>
+            Порода
+            <AddingFormInput type="text" name="sort" />
+          </AddingFormLabel>
 
-        <AddingFormLabel>
-          Штрихкод
-          <AddingFormInput type="text" name="code" />
-        </AddingFormLabel>
+          <AddingFormLabel>
+            Штрихкод
+            <AddingFormInput type="number" name="code" />
+          </AddingFormLabel>
 
-        <Button type="submit">Прийняти</Button>
-      </AddingForm>
-      {addedItems.length === 0 ? (
-        <h2>Ви ще нічого не додавали</h2>
-      ) : (
-        <h2>Список прийнятого</h2>
-      )}
-    </Container>
+          <Button type="submit">Прийняти</Button>
+        </AddingForm>
+      </Container>
+      {addedItems.length !== 0 && <Table items={addedItems} />}
+    </>
   );
 };
 

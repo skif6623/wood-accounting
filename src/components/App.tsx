@@ -6,7 +6,7 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RoundWoodList } from './RoundWoodList/RoundWoodList';
 import { BoardList } from './BoardList/BoardList';
 import { ChooseWoodType } from '../Pages/ChooseWoodType/ChooseWoodType';
-import { AddItemsForm } from '../Pages/AddItemsForm/AddItemsForm';
+import { AddItemsForm } from '../Pages/AddItems/AddItems';
 
 export const App = () => {
   return (
