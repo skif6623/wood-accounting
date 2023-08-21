@@ -1,12 +1,19 @@
 import styled from 'styled-components';
 
-export const AddingForm = styled.form`
+interface FormTypes {
+  $empty: 'show' | 'hide';
+}
+
+export const AddingForm = styled.form<FormTypes>`
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 20px;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.12),
     2px 2px 2px 2px rgba(0, 0, 0, 0.06), 4px 4px 6px rgba(0, 0, 0, 0.16);
+  transform: ${({ $empty }) =>
+    $empty === 'hide' ? 'translateY(25%)' : 'translateY(0%)'};
+  transition: transform 250ms ease;
 `;
 
 export const AddingFormLabel = styled.label`
