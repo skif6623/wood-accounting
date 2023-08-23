@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // import { AddWood } from '../Pages/AddWood';
 import { WoodStorage } from '../Pages/WoodStorage/WoodStorage';
@@ -7,10 +7,21 @@ import { RoundWoodList } from './RoundWoodList/RoundWoodList';
 import { BoardList } from './BoardList/BoardList';
 import { ChooseWoodType } from '../Pages/ChooseWoodType/ChooseWoodType';
 import { AddItemsForm } from '../Pages/AddItems/AddItems';
+// import { RegisterPage, WellcomePage, NotFoundPage } from 'pages';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 export const App = () => {
+  //  const dispatch = useDispatch()
+  // const { isRefreshing, isLoggedIn } = useSelector(state => state.auth);
+  //   useEffect(() => {
+  //   dispatch(refreshUser());
+  //   }, [dispatch]);
+  
+  
   return (
     <Routes>
+      {/* {!isLoggedIn && <Route index element={<WellcomePage />} />} */}
       <Route path="/" element={<SharedLayout />}>
         <Route path="/" element={<WoodStorage />}>
           <Route index element={<RoundWoodList />} />
