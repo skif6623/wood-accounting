@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const Btn = styled.button`
+interface BtnPropsType {
+  $tablet?: string;
+  $center?: boolean;
+}
+
+export const Btn = styled.button<BtnPropsType>`
   width: 100%;
   height: 50px;
 
@@ -28,7 +33,8 @@ export const Btn = styled.button`
   }
 
   @media screen and (min-width: 768px) {
+    width: ${({ $tablet }) => ($tablet ? $tablet : '100px')};
     height: 50px;
-    width: 100px;
+    margin: ${({ $center }) => $center && '0 auto'};
   }
 `;

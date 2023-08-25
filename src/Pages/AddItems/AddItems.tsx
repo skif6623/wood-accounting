@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useMemo } from 'react';
 import { Container } from '../../components/Container/Container';
 import { ReusableInput } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
@@ -11,15 +11,16 @@ import {
   AddingForm,
   AddingFormLabel,
   AddingFormInput,
+  AddingFormText,
 } from './AddItems.styled';
 
 export const AddItemsForm = () => {
   const [diametr, setDiametr] = useState('');
   const [amount, setAmount] = useState('');
   const [addedItems, setAddedItems] = useState<roundWoodItem[]>([]);
+  console.log(addedItems);
 
   const isItems = addedItems.length !== 0 ? 'show' : 'hide';
-  console.log(isItems);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,26 +56,28 @@ export const AddItemsForm = () => {
       <Container>
         <AddingForm $empty={isItems} onSubmit={handleSubmit}>
           <AddingFormLabel>
-            Діаметр
+            <AddingFormText>Діаметр</AddingFormText>
             <ReusableInput action={setDiametr} count={diametr} />
           </AddingFormLabel>
 
           <AddingFormLabel>
-            Кількість
+            <AddingFormText>Кількість</AddingFormText>
             <ReusableInput action={setAmount} count={amount} />
           </AddingFormLabel>
 
           <AddingFormLabel>
-            Порода
+            <AddingFormText>Порода</AddingFormText>
             <AddingFormInput type="text" name="sort" />
           </AddingFormLabel>
 
           <AddingFormLabel>
-            Штрихкод
+            <AddingFormText>Штрихкод</AddingFormText>
             <AddingFormInput type="number" name="code" />
           </AddingFormLabel>
 
-          <Button type="submit">Прийняти</Button>
+          <Button center tablet="300px" type="submit">
+            Прийняти
+          </Button>
         </AddingForm>
       </Container>
       {isItems === 'show' && <Table items={addedItems} />}
