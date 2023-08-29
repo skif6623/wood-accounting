@@ -1,36 +1,94 @@
-import React, { FC, FormEvent } from 'react';
+import { useState, FormEvent, ChangeEvent, FC } from 'react';
 import { useAppDispatch } from '../../hooks/hooks';
-import { register } from '../../redux/auth/operations';
+import { login, register } from '../../redux/auth/operations';
 import { Link } from 'react-router-dom';
 
-// interface AuthFormProps {
-//   type: 'register' | 'login';
-// }
+interface AuthFormPropsTypes {
+  type: 'login' | 'register';
+}
 
-export const AuthForm: FC = () => {
+export const AuthForm: FC<AuthFormPropsTypes> = ({ type }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const dispatch = useAppDispatch();
+
+  const loginDispatch = () => {
+    dispatch(login({ email, password }));
+  };
+
+  const registerDispatch = () => {
+    dispatch(register({ name, email, password }));
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const name = form.user.value;
-    const email = form.email.value;
-    const password = form.password.value;
-
-    const credentials = {
-      name,
-      email,
-      password,
-    };
-
-    dispatch(register(credentials));
+    type === 'login' ? loginDispatch() : registerDispatch();
   };
+
+  const handleChange = ({
+    target: { name, value },
+  }: ChangeEvent<HTMLInputElement>) => {
+    switch (name) {
+      case 'name':
+        return setName(value);
+      case 'email':
+        return setEmail(value);
+      case 'password':
+        return setPassword(value);
+      default:
+        return;
+    }
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="user" placeholder="Name" />
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password" placeholder="Password" />
-      <button type="submit">Зареєструватися</button>
-      <Link to="/login">Логін</Link>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        {type === 'register' && (
+          <label>
+            Name
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              onChange={handleChange}
+              value={name}
+            />
+          </label>
+        )}
+
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            value={email}
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            value={password}
+          />
+        </label>
+
+        <button type="submit">
+          {type === 'login' ? 'Увійти' : 'Зареєструватися'}
+        </button>
+
+        {type === 'login' ? (
+          <Link to="/">Реєстрація</Link>
+        ) : (
+          <Link to="/login">Логін</Link>
+        )}
+      </form>
+    </>
   );
 };
