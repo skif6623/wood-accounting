@@ -1,4 +1,4 @@
-import { useState, FormEvent, useMemo } from 'react';
+import { useState, FormEvent } from 'react';
 import { Container } from '../../components/Container/Container';
 import { ReusableInput } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
@@ -18,7 +18,6 @@ export const AddItemsForm = () => {
   const [diametr, setDiametr] = useState('');
   const [amount, setAmount] = useState('');
   const [addedItems, setAddedItems] = useState<roundWoodItem[]>([]);
-  console.log(addedItems);
 
   const isItems = addedItems.length !== 0 ? 'show' : 'hide';
 

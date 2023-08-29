@@ -7,20 +7,28 @@ import { RoundWoodList } from './RoundWoodList/RoundWoodList';
 import { BoardList } from './BoardList/BoardList';
 import { ChooseWoodType } from '../Pages/ChooseWoodType/ChooseWoodType';
 import { AddItemsForm } from '../Pages/AddItems/AddItems';
+import { RegisterPage } from '../Pages/RegisterPage/RegisterPage';
+import { LoginPage } from '../Pages/LoginPage/LoginPage';
 
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route path="/" element={<WoodStorage />}>
-          <Route index element={<RoundWoodList />} />
-          <Route path="board" element={<BoardList />} />
-          <Route path="pallets" element={<h1>Піддони</h1>} />
-        </Route>
-        <Route path="/choose-wood" element={<ChooseWoodType />} />
-        <Route path="/round-wood" element={<AddItemsForm />} />
-        <Route path="/board-wood" element={<AddItemsForm />} />
+        <Route index element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Route>
     </Routes>
+    // <Routes>
+    //   <Route path="/" element={<SharedLayout />}>
+    //     <Route path="/" element={<WoodStorage />}>
+    //       <Route index element={<RoundWoodList />} />
+    //       <Route path="board" element={<BoardList />} />
+    //       <Route path="pallets" element={<h1>Піддони</h1>} />
+    //     </Route>
+    //     <Route path="/choose-wood" element={<ChooseWoodType />} />
+    //     <Route path="/round-wood" element={<AddItemsForm />} />
+    //     <Route path="/board-wood" element={<AddItemsForm />} />
+    //   </Route>
+    // </Routes>
   );
 };
