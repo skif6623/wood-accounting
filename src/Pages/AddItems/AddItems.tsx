@@ -17,6 +17,9 @@ import {
 export const AddItemsForm = () => {
   const [diametr, setDiametr] = useState('');
   const [amount, setAmount] = useState('');
+  const [checked, setChecked] = useState(false);
+  const [status, setStatus] = useState('');
+  const [owner, setOwner] = useState('');
   const [addedItems, setAddedItems] = useState<roundWoodItem[]>([]);
 
   const isItems = addedItems.length !== 0 ? 'show' : 'hide';
@@ -37,7 +40,10 @@ export const AddItemsForm = () => {
       amount: +amount,
       code,
       name,
-      id: nanoid(),
+      checked,
+      status,
+      owner,
+   
     };
 
     setAddedItems(prev => [...prev, newItem]);
@@ -48,8 +54,11 @@ export const AddItemsForm = () => {
   const clearData = () => {
     setDiametr('');
     setAmount('');
+    setChecked(false);
+    setStatus('');
+    setOwner('');    
   };
-
+  
   return (
     <>
       <Container>

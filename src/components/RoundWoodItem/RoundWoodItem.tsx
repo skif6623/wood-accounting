@@ -5,11 +5,13 @@ import type { roundWoodItem } from '../../redux/roundWoodSlice';
 import { TakeToWorkForm } from '../TakeToWorkForm/TakeToWorkForm';
 
 export const RoundWoodItem: FC<roundWoodItem> = ({
-  name,
   diametr,
-  code,
+  name,
   amount,
-  id,
+  code,
+  checked,
+  status,
+  owner,
 }) => {
   return (
     <>
@@ -26,11 +28,23 @@ export const RoundWoodItem: FC<roundWoodItem> = ({
           <Title>Кількість:</Title>
           <p>{amount}</p>
         </TextWrap>
+            <TextWrap>
+          <Title>Взяти в роботу:</Title>
+          <p>{checked}</p>
+        </TextWrap>
+                <TextWrap>
+          <Title>Статус:</Title>
+          <p>{status}</p>
+        </TextWrap>
         <TextWrap>
           <Title>Штрихкод:</Title>
           <p>{code}</p>
         </TextWrap>
-        <TakeToWorkForm name={name} id={id} />
+                <TextWrap>
+          <Title>Овнер=э:</Title>
+          <p>{owner}</p>
+        </TextWrap>
+        <TakeToWorkForm name={name} id={code} />
       </Item>
     </>
   );

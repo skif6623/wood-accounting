@@ -32,14 +32,14 @@ const authSlice = createSlice({
         state.name = action.payload.name;
         state.email = action.payload.email;
       })
-      .addCase(register.rejected, (state, action) => state)
-      .addCase(login.pending, (state, action) => state)
       .addCase(login.fulfilled, (state, action) => {
         state.name = action.payload.name;
         state.email = action.payload.email;
-        state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.token = action.payload.token;
       })
+      .addCase(register.rejected, (state, action) => state)
+      .addCase(login.pending, (state, action) => state)
       .addCase(logout.fulfilled, state => {
         state.name = null;
         state.email = null;
