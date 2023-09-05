@@ -1,7 +1,11 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { loggedInSelector } from '../../redux/selectors';
+
+import { UserMenu } from '../UserMenu/UserMenu';
 import {
   HeaderLayout,
   LogoWrapper,
@@ -17,6 +21,8 @@ export interface HeaderTypes {
 }
 
 export const Header: FC<HeaderTypes> = ({ isOpen, toggle }) => {
+  const isLoggedin = useAppSelector(loggedInSelector);
+
   return (
     <HeaderLayout>
       <LogoWrapper>
@@ -31,7 +37,7 @@ export const Header: FC<HeaderTypes> = ({ isOpen, toggle }) => {
           <LogoImage open={isOpen} src={logo} alt="logo" />
         </NavLink>
       </LogoWrapper>
-      <AuthIcon />
+      {isLoggedin ? <UserMenu /> : <AuthIcon />}
     </HeaderLayout>
   );
 };
