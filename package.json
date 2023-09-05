@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.22.15",
+    "@babel/preset-typescript": "^7.22.15",
     "@reduxjs/toolkit": "^1.9.5",
     "@tanstack/react-table": "^8.9.3",
     "@testing-library/jest-dom": "^5.17.0",
@@ -48,6 +50,7 @@
       "last 1 safari version"
     ]
   },
+
   "devDependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.39",
