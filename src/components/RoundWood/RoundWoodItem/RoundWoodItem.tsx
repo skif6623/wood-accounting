@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Item, TextWrap, Title } from './RoundWoodItem.styled';
 
-import type { roundWoodItem } from '../../redux/roundWoodSlice';
-import { TakeToWorkForm } from '../TakeToWorkForm/TakeToWorkForm';
+import type { roundWoodItem } from '../../../redux/roundWoodSlice';
+import { TakeToWorkForm } from '../../TakeToWorkForm/TakeToWorkForm';
 
 export const RoundWoodItem: FC<roundWoodItem> = ({
   diametr,
@@ -39,10 +39,6 @@ export const RoundWoodItem: FC<roundWoodItem> = ({
         <TextWrap>
           <Title>Штрихкод:</Title>
           <p>{code}</p>
-        </TextWrap>
-                <TextWrap>
-          <Title>Овнер=э:</Title>
-          <p>{owner}</p>
         </TextWrap>
         <TakeToWorkForm name={name} id={code} />
       </Item>

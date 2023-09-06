@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 // import { AddWood } from '../Pages/AddWood';
 import { WoodStorage } from '../Pages/WoodStorage/WoodStorage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-// import { RoundWoodList } from './RoundWoodList/RoundWoodList';
+import { RoundWoodList } from './RoundWood/RoundWoodList/RoundWoodList';
 // import { BoardList } from './BoardList/BoardList';
 // import { ChooseWoodType } from '../Pages/ChooseWoodType/ChooseWoodType';
 import { AddItemsForm } from '../Pages/AddItems/AddItems';
@@ -16,35 +16,35 @@ import { getRoundWood } from '../redux/operations';
 
 
 export const App: React.FC = () => {
-  const dispatch = useAppDispatch();
+
   const isLoggedIn = useAppSelector((state: RootState) => state.auth.isLoggedIn);
-  const navigate = useNavigate();
 
 
 
-  useEffect(() => {
-    dispatch(getRoundWood())
+  // useEffect(() => {
+  //   console.log(dispatch(getRoundWood()));
+    
+  //   dispatch(getRoundWood())
 
-  }, [dispatch]);
+  // }, [dispatch]);
+
   
   
   return (
     <div>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          {!isLoggedIn ? (
-            <>
               <Route index element={<WoodStorage />} />
-              <Route path="round-wood" element={<AddItemsForm />} />
+              <Route path="wood" element={<RoundWoodList />} />
               <Route path="board-wood" element={<AddItemsForm />} />
-            </>
-          ) : (
-            <Navigate to="/login" />
-          )}
         </Route>
+
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="*" element={<p>тут ніхуя нема скільки не дивись</p>} />
       </Routes>
+
+      
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { roundWoodItem } from './roundWoodSlice';
-import { BoardItem } from './boardSlice';
+import { boardItem } from './boardSlice';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://avk-pallet-backend.onrender.com/api';
@@ -22,12 +22,12 @@ export const getRoundWood = createAsyncThunk<
 
 
 export const getBoard = createAsyncThunk<
-  BoardItem[],
+  boardItem[],
   undefined,
   { rejectValue: string }
 >('board/getBoard', async (_, { rejectWithValue }) => {
   try {
-    const res = await axios.get('boards');
+    const res = await axios.get('/desks');
     return res.data;
   } catch (error) {
     return rejectWithValue('Server error');
