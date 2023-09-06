@@ -1,9 +1,9 @@
 import React, { FC, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { roundWoodSelector } from '../../redux/selectors';
-import { getRoundWood } from '../../redux/operations';
+import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
+import { roundWoodSelector } from '../../../redux/selectors';
+import { getRoundWood } from '../../../redux/operations';
 
-import { RoundWoodItem } from '../RoundWoodItem/RoundWoodItem';
+import { RoundWoodItem } from '../../RoundWood/RoundWoodItem/RoundWoodItem';
 import { DesctiptionList, DesctiptionItem, List } from './RoundWoodList.styled';
 
 export const RoundWoodList: FC = () => {
@@ -11,10 +11,15 @@ export const RoundWoodList: FC = () => {
   const roundWood = useAppSelector(roundWoodSelector);
   const desctiption = ['Назва', 'Діаметр', 'Кількість', 'Штрихкод'];
 
+  
   useEffect(() => {
-    dispatch(getRoundWood());
-  }, [dispatch]);
+    console.log(dispatch(getRoundWood()));
+    
+    dispatch(getRoundWood())
 
+  }, [dispatch]);
+  console.log(roundWood);
+  
   return (
     <>
       <DesctiptionList>

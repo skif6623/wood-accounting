@@ -6,9 +6,9 @@ export interface roundWoodItem {
   name: string;
   amount: number;
   code: string;
-  checked: boolean;
+  checked: boolean; 
   status: string;
-  owner: string; // Передбачаю, що owner - це рядок, ви можете змінити тип, якщо це не так
+  owner: string; 
 }
 
 const initialState: roundWoodItem[] = [];
