@@ -1,6 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { boardSliceReducer } from './boardSlice';
 import { roundWoodReducer } from './roundWoodSlice';
+import { productionSliceReducer } from './productionSlice';
 import { authReducer } from './auth/authSlice';
 
 import { persistStore, persistReducer } from 'redux-persist';
@@ -19,6 +20,7 @@ export const store = configureStore({
     auth: persistedReducer,
     board: boardSliceReducer,
     roundWood: roundWoodReducer,
+    production: productionSliceReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: false,

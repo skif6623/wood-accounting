@@ -27,7 +27,7 @@ export const BoardList: FC = () => {
         })}
       </DesctiptionList>
       <List>
-        {board.map(({ id, type, width, code, amount, height, length}) => {
+        {board.map(({name, width, code, amount, height, length}) => {
           return (
             <BoardItem
               id={code}
@@ -35,23 +35,13 @@ export const BoardList: FC = () => {
               code={code}
               height={height}
               length={length}
-              name={type}
+              name={name}
               width={width}
-              type={type} />
+              checked={false}
+              status={'на складі'}
             
+            />
 
-
-
-            // <BoardItem
-            //   key={id}
-            //   name={type}
-            //   width={width}
-            //   code={code}
-            //   amount={amount}
-            //   height={height}
-            //   length={length}
-            //   // id={code}
-            // />
           );
         })}
       </List>
@@ -60,43 +50,4 @@ export const BoardList: FC = () => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-// import React, { FC, useEffect } from 'react';
-// import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
-// import { boardSelector } from '../../../redux/selectors';
-// import { getBoard } from '../../../redux/operations';
-
-// export const BoardList: FC = () => {
-//   const dispatch = useAppDispatch();
-//   const board = useAppSelector(boardSelector);
-
-//   useEffect(() => {
-//     dispatch(getBoard());
-//   }, [dispatch]);
-
-//   return (
-//     <ul>
-//       {board.map(item => {
-//         return (
-//           <li key={item.id}>
-//             <p>{item.amount}</p>
-//             <p>{item.height}</p>
-//             <p>{item.width}</p>
-//             <p>{item.length}</p>
-//             <p>{item.type}</p>
-//             <p>{item.id}</p>
-//           </li>
-//         );
-//       })}
-//     </ul>
-//   );
-// };
+//const statusList = ['на складі', 'в роботі']
