@@ -6,11 +6,11 @@ export interface boardItem {
 	height: number;
 	length: number;
 	amount: number;
-	type: string;
 	code: string;
 	id: string;
-	name: string
-
+	name: string;
+	checked: boolean;
+	status: string;
 }
 
 const initialState: boardItem[] = [];

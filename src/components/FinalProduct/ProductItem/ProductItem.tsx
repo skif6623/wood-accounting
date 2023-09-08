@@ -1,18 +1,18 @@
 import React, { FC } from 'react';
- import { Item, TextWrap, Title } from './BoardItem.styled';
+ import { Item, TextWrap, Title } from './ProductItemStyled';
 
-import type { boardItem } from '../../../redux/boardSlice';
+import type { productionItem } from '../../../redux/productionSlice';
 import { TakeToWorkForm } from '../../TakeToWorkForm/TakeToWorkForm';
 
-export const BoardItem: FC<boardItem> = ({
-  width,
-  height,
-  length,
+export const ProdactionItem: FC<productionItem> = ({
+//   width,
+//   height,
+//   length,
   amount,
   name,
   code,
-  checked,
-  status,
+//   checked,
+//   status,
 
 }) => {
   return (
@@ -23,7 +23,7 @@ export const BoardItem: FC<boardItem> = ({
           <p>{name}</p>
         </TextWrap>
         <TextWrap>
-          <Title>Довжинна </Title>
+          {/* <Title>Довжинна </Title>
           <p>{length}</p>
               </TextWrap>
         <Title>Ширина</Title>
@@ -32,14 +32,14 @@ export const BoardItem: FC<boardItem> = ({
         <Title>Товщина</Title>
           <p>{width}</p>
               </TextWrap>
-        <TextWrap>
+        <TextWrap> */}
 
         </TextWrap>
         <TextWrap>
           <Title>Кількість:</Title>
           <p>{amount}</p>
         </TextWrap>
-            <TextWrap>
+            {/* <TextWrap>
         <Title>Взяти в роботу:</Title>
           <p>{checked}</p>
               </TextWrap>
@@ -47,7 +47,7 @@ export const BoardItem: FC<boardItem> = ({
         <TextWrap>
           <Title>Статус:</Title>
           <p>{status}</p>
-        </TextWrap>
+        </TextWrap> */}
         <TextWrap>
           <Title>Штрихкод:</Title>
           <p>{code}</p>

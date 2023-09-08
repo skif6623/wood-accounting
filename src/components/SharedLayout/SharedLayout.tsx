@@ -26,7 +26,6 @@ export const SharedLayout = () => {
       <li><Link to="/login">Логін</Link></li>
       </ul>
       
-      {/* <RoundWoodList /> */}
       <Outlet />
     </>
   );

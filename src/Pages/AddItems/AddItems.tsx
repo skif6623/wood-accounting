@@ -14,6 +14,7 @@ import {
   AddingFormText,
 } from './AddItems.styled';
 
+
 export const AddItemsForm = () => {
   const [diametr, setDiametr] = useState('');
   const [amount, setAmount] = useState('');
@@ -58,6 +59,8 @@ export const AddItemsForm = () => {
     setStatus('');
     setOwner('');    
   };
+  
+  console.log(addedItems);
   
   return (
     <>
