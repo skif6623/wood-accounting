@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
-// import { AddWood } from '../Pages/AddWood';
 import { WoodStorage } from '../Pages/WoodStorage/WoodStorage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RoundWoodList } from './RoundWood/RoundWoodList/RoundWoodList';
@@ -10,9 +9,10 @@ import { ChooseWoodType } from '../Pages/ChooseWoodType/ChooseWoodType';
 import { AddItemsForm } from '../Pages/AddItems/AddItems';
 import { RegisterPage } from '../Pages/RegisterPage/RegisterPage';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
-import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { useAppSelector } from '../hooks/hooks';
+import { ChooseWoodTypeInPtogress } from '../Pages/ChooseWoodType/ChooseWoodTypeInPtogress';
+import { SearchRWprogress } from './RoundWood/SearchRWprogress/SearchRWprogress';
 
 
 export const App: React.FC = () => {
@@ -66,8 +66,12 @@ export const App: React.FC = () => {
             <Route path="pallets" element={<ProductionItemList />} />
           </Route>
           <Route path="/choose-wood" element={<ChooseWoodType />} />
-          <Route path="/add" element={<AddItemsForm />} />
-          <Route path="/board-wood" element={<AddItemsForm />} />
+          <Route path="/inProgress" element={<ChooseWoodTypeInPtogress />} />
+          <Route path="/round-wood" element={<AddItemsForm />} />
+          <Route path="/board-wood" element={
+            <p> треба придумати як зробити щоб ця сторінка приймала
+              доску різниця з кругляком що в описі прзміри а не діаметр та пост запит</p>} />
+          <Route path="/round-wood-progress" element={<SearchRWprogress/> } />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />

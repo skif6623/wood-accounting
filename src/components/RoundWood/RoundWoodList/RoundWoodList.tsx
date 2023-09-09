@@ -28,7 +28,7 @@ export const RoundWoodList: FC = () => {
         })}
       </DesctiptionList>
       <List>
-        {roundWood.map(({ name, diametr, code, amount, checked, status, owner}) => {
+        {roundWood.map(({ name, diametr, code, amount, checked, status}) => {
           return (
             <RoundWoodItem
               key={code}
@@ -38,7 +38,7 @@ export const RoundWoodList: FC = () => {
               amount={amount}
               checked={checked}
               status={status}
-              owner={owner}
+              
             />
           );
         })}
