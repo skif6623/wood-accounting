@@ -5,7 +5,6 @@ import { Button } from '../../components/Button/Button';
 import { Table } from '../../components/Table/Table';
 
 import type { roundWoodItem } from '../../redux/roundWoodSlice';
-import { nanoid } from 'nanoid';
 
 import {
   AddingForm,
@@ -13,23 +12,22 @@ import {
   AddingFormInput,
   AddingFormText,
 } from './AddItems.styled';
-
+import axios from 'axios';
 
 export const AddItemsForm = () => {
   const [diametr, setDiametr] = useState('');
   const [amount, setAmount] = useState('');
+  const [name, setName] = useState('');
+  const [code, setCode] = useState('');
   const [checked, setChecked] = useState(false);
-  const [status, setStatus] = useState('');
-  const [owner, setOwner] = useState('');
+  const [status, setStatus] = useState('на складі');
   const [addedItems, setAddedItems] = useState<roundWoodItem[]>([]);
+  const [isSending, setIsSending] = useState(false);
 
   const isItems = addedItems.length !== 0 ? 'show' : 'hide';
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const name = form.sort.value;
-    const code = form.code.value;
 
     if (name === '' || code === '' || diametr === '' || amount === '') {
       console.log('Заповніть всі поля');
@@ -43,25 +41,38 @@ export const AddItemsForm = () => {
       name,
       checked,
       status,
-      owner,
-   
     };
 
     setAddedItems(prev => [...prev, newItem]);
-    form.reset();
     clearData();
+  };
+
+
+  const handleSendToBackend = async () => {
+    try {
+      setIsSending(true);
+      for (const item of addedItems) {
+        const res = await axios.post('/wood', item);
+        console.log('Успешно отправлено на бэкенд:', res.data);
+      }
+      setAddedItems([]);
+      clearData();
+    } catch (error) {
+      console.error('Ошибка при отправке на бэкенд:', error);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const clearData = () => {
     setDiametr('');
     setAmount('');
+    setName('');
+    setCode('');
     setChecked(false);
-    setStatus('');
-    setOwner('');    
+
   };
-  
-  console.log(addedItems);
-  
+
   return (
     <>
       <Container>
@@ -78,12 +89,12 @@ export const AddItemsForm = () => {
 
           <AddingFormLabel>
             <AddingFormText>Порода</AddingFormText>
-            <AddingFormInput type="text" name="sort" />
+            <AddingFormInput type="text" name="sort" onChange={(e) => setName(e.target.value)} value={name} />
           </AddingFormLabel>
 
           <AddingFormLabel>
             <AddingFormText>Штрихкод</AddingFormText>
-            <AddingFormInput type="number" name="code" />
+            <AddingFormInput type="number" name="code" onChange={(e) => setCode(e.target.value)} value={code} />
           </AddingFormLabel>
 
           <Button center tablet="300px" type="submit">
@@ -91,7 +102,14 @@ export const AddItemsForm = () => {
           </Button>
         </AddingForm>
       </Container>
-      {isItems === 'show' && <Table items={addedItems} />}
+      {isItems === 'show' && (
+        <>
+          <Table items={addedItems} />
+          <button onClick={handleSendToBackend} disabled={isSending}>
+            Відправити на склад
+          </button>
+        </>
+      )}
     </>
   );
 };

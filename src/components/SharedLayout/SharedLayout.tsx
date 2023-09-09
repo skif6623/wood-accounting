@@ -20,9 +20,6 @@ export const SharedLayout = () => {
       <p>тимчасова панель </p>
       <ul>
       <li><Link to="/register">Реєстрація</Link></li>
-      <li><Link to="/wood">Кругляк</Link></li>
-      <li><Link to="/desks">Дощка</Link></li>
-      <li><Link to="/production">Продукція</Link></li>
       <li><Link to="/login">Логін</Link></li>
       </ul>
       

@@ -11,7 +11,6 @@ export const RoundWoodItem: FC<roundWoodItem> = ({
   code,
   checked,
   status,
-  owner,
 }) => {
   return (
     <>

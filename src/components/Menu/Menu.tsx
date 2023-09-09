@@ -48,9 +48,9 @@ export const Menu: FC<HeaderTypes> = ({ isOpen, toggle }) => {
       <MenuLayout open={isOpen}>
         <Navigation onClick={click}>
           <Link to="/">Склад</Link>
-          <Link to="/add">Приход кругляку</Link>
+          {/* <Link to="/add">Приход кругляку</Link> */}
           <Link to="/choose-wood">Приход</Link>
-          <Link to="/inProgress">В роботі</Link>
+          <Link to="/inProgress">Взяти в роботу</Link>
           <Link to="/addWood">Додати</Link>
           <Link to="/woodProcesing">В процесі</Link>
         </Navigation>

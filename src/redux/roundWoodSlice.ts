@@ -8,7 +8,6 @@ export interface roundWoodItem {
   code: string;
   checked: boolean; 
   status: string;
-  owner: string; 
 }
 
 const initialState: roundWoodItem[] = [];
