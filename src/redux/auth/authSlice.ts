@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, logout } from './operations';
+import { register, login, logout, refreshCurrentUser } from './operations';
 
 export interface UserType {
   name: string | null;
@@ -45,6 +45,11 @@ const authSlice = createSlice({
         state.email = null;
         state.token = null;
         state.isLoggedIn = false;
+      })
+      .addCase(refreshCurrentUser.fulfilled, (state, action) => {
+        state.name = action.payload.name;
+        state.email = action.payload.email;
+        state.isLoggedIn = true;
       }),
 });
 

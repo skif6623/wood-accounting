@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import type { UserType } from './authSlice';
+import type { RootState } from '../store';
 
 interface loginResponseType {
   name: string;
@@ -51,8 +52,7 @@ export const login = createAsyncThunk<
   try {
     const { data } = await axios.post('/auth/login', credentials);
     token.set(data.token);
-    console.log(data);
-    
+
     return data;
   } catch (error: any) {
     if (axios.isAxiosError(error)) {
@@ -68,6 +68,30 @@ export const logout = createAsyncThunk(
     try {
       await axios.post('/auth/logout');
       token.unset();
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        return rejectWithValue(error.response?.data?.message || 'Server error');
+      }
+      return rejectWithValue('Server error');
+    }
+  }
+);
+
+export const refreshCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, { getState, rejectWithValue }) => {
+    const state = getState() as RootState;
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return rejectWithValue('Unautorized');
+    }
+
+    token.set(persistedToken);
+
+    try {
+      const { data } = await axios.get('/auth/current');
+      return data;
     } catch (error: any) {
       if (axios.isAxiosError(error)) {
         return rejectWithValue(error.response?.data?.message || 'Server error');
