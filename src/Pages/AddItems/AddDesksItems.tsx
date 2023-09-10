@@ -3,8 +3,7 @@ import { Container } from '../../components/Container/Container';
 import { ReusableInput } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { Table } from '../../components/Table/Table';
-
-import type { roundWoodItem } from '../../redux/roundWoodSlice';
+import type { boardItem } from '../../redux/boardSlice';
 
 import {
   AddingForm,
@@ -14,14 +13,16 @@ import {
 } from './AddItems.styled';
 import axios from 'axios';
 
-export const AddItemsForm = () => {
-  const [diametr, setDiametr] = useState('');
-  const [amount, setAmount] = useState('');
+export const AddDeskItemsForm = () => {
+  const [width, setWidth] = useState('0');
+  const [height, setHeight] = useState('0');
+    const [amount, setAmount] = useState('0');
+    const [length, setLength] = useState('0');
   const [name, setName] = useState('');
   const [code, setCode] = useState('');
   const [checked, setChecked] = useState(false);
   const [status, setStatus] = useState('на складі');
-  const [addedItems, setAddedItems] = useState<roundWoodItem[]>([]);
+  const [addedItems, setAddedItems] = useState<boardItem[]>([]);
   const [isSending, setIsSending] = useState(false);
 
   const isItems = addedItems.length !== 0 ? 'show' : 'hide';
@@ -29,19 +30,22 @@ export const AddItemsForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (name === '' || code === '' || diametr === '' || amount === '') {
+    if (name === '' || code === '' || width === '' || amount === ''|| height === '') {
       console.log('Заповніть всі поля');
       return;
     }
 
-    const newItem: roundWoodItem = {
-      diametr: +diametr,
-      amount: +amount,
-      code,
-      name,
-      checked,
-      status,
-    };
+      const newItem: boardItem = {
+    width: parseFloat(width),
+    height: parseFloat(height),
+    length: parseFloat(length),
+          amount: +amount,
+          code,
+          name,
+          checked,
+          status,
+          id: ''
+      };
 
     setAddedItems(prev => [...prev, newItem]);
     clearData();
@@ -52,7 +56,7 @@ export const AddItemsForm = () => {
     try {
       setIsSending(true);
       for (const item of addedItems) {
-        const res = await axios.post('/wood', item);
+        const res = await axios.post('/desks', item);
         console.log('Успешно отправлено на бэкенд:', res.data);
       }
       setAddedItems([]);
@@ -64,22 +68,34 @@ export const AddItemsForm = () => {
     }
   };
 
-  const clearData = () => {
-    setDiametr('');
-    setAmount('');
-    setName('');
-    setCode('');
-    setChecked(false);
+    const clearData = () => {
+        setHeight('');
+        setAmount('');
+        setName('');
+        setCode('');
+        setWidth('');
+        setLength('');
+        setChecked(false);
 
-  };
+    };
 
   return (
     <>
       <Container>
         <AddingForm $empty={isItems} onSubmit={handleSubmit}>
           <AddingFormLabel>
-            <AddingFormText>Діаметр</AddingFormText>
-            <ReusableInput action={setDiametr} count={diametr} />
+            <AddingFormText>Ширина</AddingFormText>
+            <ReusableInput action={setWidth} count={width} />
+          </AddingFormLabel>
+
+                    <AddingFormLabel>
+            <AddingFormText>Довжина</AddingFormText>
+            <ReusableInput action={setLength} count={length} />
+          </AddingFormLabel>
+
+                    <AddingFormLabel>
+            <AddingFormText>Висота</AddingFormText>
+            <ReusableInput action={setHeight} count={height} />
           </AddingFormLabel>
 
           <AddingFormLabel>
