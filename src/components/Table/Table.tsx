@@ -8,15 +8,16 @@ import {
 import { CustomTable, CustomTr } from './Table.styled';
 
 import type { roundWoodItem } from '../../redux/roundWoodSlice';
+import type { boardItem } from '../../redux/boardSlice';
 
-interface TablePropsType {
-  items: roundWoodItem[];
-}
+type TablePropsType = {
+  items: (roundWoodItem | boardItem)[];
+};
 
 export const Table: FC<TablePropsType> = ({ items }) => {
   const data = useMemo(() => items, [items]);
 
-  const columns = [
+  const columns = [  
     {
       header: 'Назва',
       accessorKey: 'name',
@@ -38,6 +39,10 @@ export const Table: FC<TablePropsType> = ({ items }) => {
       footer: 'Штрихкод',
     },
   ];
+
+
+
+  
   const table = useReactTable({
     data: data,
     columns: columns,

@@ -6,12 +6,12 @@ import { RoundWoodList } from './RoundWood/RoundWoodList/RoundWoodList';
 import { BoardList } from './Boards/BoardList/BoardList';
 import { ProductionItemList } from './FinalProduct/ProductList/ProductList';
 import { ChooseWoodType } from '../Pages/ChooseWoodType/ChooseWoodType';
-import { AddItemsForm } from '../Pages/AddItems/AddItems';
+import { AddWoodItemsForm } from '../Pages/AddItems/AddWoodItems';
+ import { AddDeskItemsForm } from '../Pages/AddItems/AddDesksItems';
 import { RegisterPage } from '../Pages/RegisterPage/RegisterPage';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
 import { RootState } from '../redux/store';
 import { useAppSelector } from '../hooks/hooks';
-import { ChooseWoodTypeInPtogress } from '../Pages/ChooseWoodType/ChooseWoodTypeInPtogress';
 import { SearchRWprogress } from './RoundWood/SearchRWprogress/SearchRWprogress';
 
 
@@ -20,35 +20,8 @@ export const App: React.FC = () => {
   const isLoggedIn = useAppSelector((state: RootState) => state.auth.isLoggedIn);
 
 
-
-  // useEffect(() => {
-  //   console.log(dispatch(getRoundWood()));
-    
-  //   dispatch(getRoundWood())
-
-  // }, [dispatch]);
-
-  
   
   return (
-    //     <div>
-    //       <Routes>
-    //         <Route path="/" element={<SharedLayout />}>
-    //               <Route index element={<WoodStorage />} />
-    //               <Route path="wood" element={<RoundWoodList />} />
-    //               <Route path="board-wood" element={<AddItemsForm />} />
-    //         </Route>
-
-    //         <Route path="/login" element={<LoginPage />} />
-    //         <Route path="/register" element={<RegisterPage />} />
-    //         <Route path="*" element={<p>тут ніхуя нема скільки не дивись</p>} />
-    //       </Routes>
-
-      
-    //     </div>
-    //   );
-    // };
-
 
     <div>
       {/* <Routes>
@@ -58,7 +31,10 @@ export const App: React.FC = () => {
         <Route path="/login" element={<LoginPage />} />
       </Route>
     </Routes> */}
+      
+      
       <Routes>
+
         <Route path="/" element={<SharedLayout />}>
           <Route path="/" element={<WoodStorage />}>
             <Route index element={<RoundWoodList />} />
@@ -66,11 +42,9 @@ export const App: React.FC = () => {
             <Route path="pallets" element={<ProductionItemList />} />
           </Route>
           <Route path="/choose-wood" element={<ChooseWoodType />} />
-          <Route path="/inProgress" element={<ChooseWoodTypeInPtogress />} />
-          <Route path="/round-wood" element={<AddItemsForm />} />
-          <Route path="/board-wood" element={
-            <p> треба придумати як зробити щоб ця сторінка приймала
-              доску різниця з кругляком що в описі прзміри а не діаметр та пост запит</p>} />
+          
+          <Route path="/round-wood" element={<AddWoodItemsForm />} />
+          <Route path="/board-wood" element={<AddDeskItemsForm/>} />
           <Route path="/round-wood-progress" element={<SearchRWprogress/> } />
         </Route>
         <Route path="/login" element={<LoginPage />} />

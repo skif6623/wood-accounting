@@ -50,9 +50,7 @@ export const Menu: FC<HeaderTypes> = ({ isOpen, toggle }) => {
           <Link to="/">Склад</Link>
           {/* <Link to="/add">Приход кругляку</Link> */}
           <Link to="/choose-wood">Приход</Link>
-          <Link to="/inProgress">Взяти в роботу</Link>
-          <Link to="/addWood">Додати</Link>
-          <Link to="/woodProcesing">В процесі</Link>
+          <Link to="/woodProcesing">В роботі</Link>
         </Navigation>
         <CloseIcon
           onClick={() => {
