@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+
+import { useAppSelector, useAppDispatch } from '../hooks/hooks';
+import { refreshCurrentUser } from '../redux/auth/operations';
+
 import { WoodStorage } from '../Pages/WoodStorage/WoodStorage';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { RoundWoodList } from './RoundWood/RoundWoodList/RoundWoodList';
@@ -10,26 +14,26 @@ import { AddItemsForm } from '../Pages/AddItems/AddItems';
 import { RegisterPage } from '../Pages/RegisterPage/RegisterPage';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
 import { RootState } from '../redux/store';
-import { useAppSelector } from '../hooks/hooks';
 import { ChooseWoodTypeInPtogress } from '../Pages/ChooseWoodType/ChooseWoodTypeInPtogress';
 import { SearchRWprogress } from './RoundWood/SearchRWprogress/SearchRWprogress';
 
-
 export const App: React.FC = () => {
+  const isLoggedIn = useAppSelector(
+    (state: RootState) => state.auth.isLoggedIn
+  );
+  const dispatch = useAppDispatch();
 
-  const isLoggedIn = useAppSelector((state: RootState) => state.auth.isLoggedIn);
-
-
+  useEffect(() => {
+    dispatch(refreshCurrentUser());
+  }, [dispatch]);
 
   // useEffect(() => {
   //   console.log(dispatch(getRoundWood()));
-    
+
   //   dispatch(getRoundWood())
 
   // }, [dispatch]);
 
-  
-  
   return (
     //     <div>
     //       <Routes>
@@ -44,11 +48,9 @@ export const App: React.FC = () => {
     //         <Route path="*" element={<p>тут ніхуя нема скільки не дивись</p>} />
     //       </Routes>
 
-      
     //     </div>
     //   );
     // };
-
 
     <div>
       {/* <Routes>
@@ -68,14 +70,22 @@ export const App: React.FC = () => {
           <Route path="/choose-wood" element={<ChooseWoodType />} />
           <Route path="/inProgress" element={<ChooseWoodTypeInPtogress />} />
           <Route path="/round-wood" element={<AddItemsForm />} />
-          <Route path="/board-wood" element={
-            <p> треба придумати як зробити щоб ця сторінка приймала
-              доску різниця з кругляком що в описі прзміри а не діаметр та пост запит</p>} />
-          <Route path="/round-wood-progress" element={<SearchRWprogress/> } />
+          <Route
+            path="/board-wood"
+            element={
+              <p>
+                {' '}
+                треба придумати як зробити щоб ця сторінка приймала доску
+                різниця з кругляком що в описі прзміри а не діаметр та пост
+                запит
+              </p>
+            }
+          />
+          <Route path="/round-wood-progress" element={<SearchRWprogress />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-         <Route path="*" element={<p>тут ніхуя нема скільки не дивись</p>}/>
+        <Route path="*" element={<p>тут ніхуя нема скільки не дивись</p>} />
       </Routes>
     </div>
   );
