@@ -19,7 +19,7 @@ export const AddWoodItemsForm = () => {
   const [amount, setAmount] = useState('');
   const [name, setName] = useState('');
   const [code, setCode] = useState('');
-  const [lenght, setLenght] = useState('');
+  const [length, setLength] = useState('');
   const [checked, setChecked] = useState(false);
   const [status, setStatus] = useState('на складі');
   const [addedItems, setAddedItems] = useState<roundWoodItem[]>([]);
@@ -30,7 +30,7 @@ export const AddWoodItemsForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (name === '' || code === '' || diametr === '' || amount === '' || lenght === '') {
+    if (name === '' || code === '' || diametr === '' || amount === '' || length === '') {
       console.log('Заповніть всі поля');
       return;
     }
@@ -38,7 +38,7 @@ export const AddWoodItemsForm = () => {
     const newItem: roundWoodItem = {
       diametr: +diametr,
       amount: +amount,
-      lenght: +lenght,
+      length: +length,
       code,
       name,
       checked,
@@ -86,7 +86,7 @@ export const AddWoodItemsForm = () => {
 
           <AddingFormLabel>
             <AddingFormText>Довжина</AddingFormText>
-            <ReusableInput action={setLenght} count={lenght} />
+            <ReusableInput action={setLength} count={length} />
           </AddingFormLabel>
 
           <AddingFormLabel>

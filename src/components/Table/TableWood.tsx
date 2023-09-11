@@ -9,9 +9,9 @@ import { CustomTable, CustomTr } from './Table.styled';
 
 import type { roundWoodItem } from '../../redux/roundWoodSlice';
 import type { boardItem } from '../../redux/boardSlice';
-
+import type { random } from '../../Pages/AddItems/AddDesksItems';
 type TablePropsType = {
-  items: (roundWoodItem | boardItem)[];
+  items: (roundWoodItem | boardItem | random)[];
 };
 
 export const TableWood: FC<TablePropsType> = ({ items }) => {
@@ -30,7 +30,7 @@ export const TableWood: FC<TablePropsType> = ({ items }) => {
     },
         {
       header: 'Довжина',
-      accessorKey: 'lenght',
+      accessorKey: 'length',
       footer: 'Довжина',
       },
     {

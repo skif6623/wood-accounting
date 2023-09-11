@@ -27,14 +27,14 @@ export const BoardList: FC = () => {
         })}
       </DesctiptionList>
       <List>
-        {board.map(({name, width, code, amount, height, lenght, _id}) => {
+        {board.map(({name, width, code, amount, height, length, _id}) => {
           return (
             <BoardItem
               _id={_id}
               amount={amount}
               code={code}
               height={height}
-              lenght={lenght}
+              length={length}
               name={name}
               width={width}
               checked={false}

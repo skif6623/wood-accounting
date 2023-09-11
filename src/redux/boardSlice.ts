@@ -4,7 +4,7 @@ import {getBoard} from "./operations";
 export interface boardItem {
 	width: number;
 	height: number;
-	lenght: number;
+	length: number;
 	amount: number;
 	code: string;
 	_id: string;
