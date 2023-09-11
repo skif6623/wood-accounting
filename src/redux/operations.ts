@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { roundWoodItem } from './roundWoodSlice';
 import { boardItem } from './boardSlice';
-import { productionItem} from './productionSlice';
+import { productionItem } from './productionSlice';
+import { InProgressWood } from './InProgressWoodSlice';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://avk-pallet-backend.onrender.com/api';
@@ -50,5 +51,17 @@ export const getProduction = createAsyncThunk<
   }
 });
 
-
-
+export const getProgressWood = createAsyncThunk<
+  InProgressWood[],
+  undefined,
+  { rejectValue: string }
+>('/InProgressWood', async (_, { rejectWithValue }) => {
+  try {
+    const res = await axios.get('/wood');
+    console.log(res.data);
+    
+    return res.data;
+  } catch (error) {
+    return rejectWithValue('Server error');
+  }
+});

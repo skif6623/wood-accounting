@@ -13,6 +13,7 @@ export const BoardItem: FC<boardItem> = ({
   code,
   checked,
   status,
+   _id,
 
 }) => {
   return (
@@ -56,7 +57,7 @@ export const BoardItem: FC<boardItem> = ({
           <Title>Овнер=э:</Title>
           <p>{owner}</p>
         </TextWrap> */}
-        <TakeToWorkForm name={name} id={code} />
+        <TakeToWorkForm name={name} id={_id} />
       </Item>
     </>
   );

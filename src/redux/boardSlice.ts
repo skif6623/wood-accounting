@@ -7,10 +7,11 @@ export interface boardItem {
 	length: number;
 	amount: number;
 	code: string;
-	id: string;
+	_id: string;
 	name: string;
 	checked: boolean;
 	status: string;
+
 }
 
 const initialState: boardItem[] = [];

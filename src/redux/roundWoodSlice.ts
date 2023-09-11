@@ -4,10 +4,12 @@ import { getRoundWood } from "./operations";
 export interface roundWoodItem {
   diametr: number;
   name: string;
+  length: number;
   amount: number;
   code: string;
   checked: boolean; 
   status: string;
+  // _id: string;
 }
 
 const initialState: roundWoodItem[] = [];
