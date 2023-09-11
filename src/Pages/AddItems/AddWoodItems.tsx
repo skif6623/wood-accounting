@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react';
 import { Container } from '../../components/Container/Container';
 import { ReusableInput } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
-import { Table } from '../../components/Table/Table';
+import { TableWood } from '../../components/Table/TableWood';
 
 import type { roundWoodItem } from '../../redux/roundWoodSlice';
 
@@ -19,6 +19,7 @@ export const AddWoodItemsForm = () => {
   const [amount, setAmount] = useState('');
   const [name, setName] = useState('');
   const [code, setCode] = useState('');
+  const [length, setLength] = useState('');
   const [checked, setChecked] = useState(false);
   const [status, setStatus] = useState('на складі');
   const [addedItems, setAddedItems] = useState<roundWoodItem[]>([]);
@@ -29,7 +30,7 @@ export const AddWoodItemsForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (name === '' || code === '' || diametr === '' || amount === '') {
+    if (name === '' || code === '' || diametr === '' || amount === '' || length === '') {
       console.log('Заповніть всі поля');
       return;
     }
@@ -37,6 +38,7 @@ export const AddWoodItemsForm = () => {
     const newItem: roundWoodItem = {
       diametr: +diametr,
       amount: +amount,
+      length: +length,
       code,
       name,
       checked,
@@ -83,6 +85,11 @@ export const AddWoodItemsForm = () => {
           </AddingFormLabel>
 
           <AddingFormLabel>
+            <AddingFormText>Довжина</AddingFormText>
+            <ReusableInput action={setLength} count={length} />
+          </AddingFormLabel>
+
+          <AddingFormLabel>
             <AddingFormText>Кількість</AddingFormText>
             <ReusableInput action={setAmount} count={amount} />
           </AddingFormLabel>
@@ -104,7 +111,7 @@ export const AddWoodItemsForm = () => {
       </Container>
       {isItems === 'show' && (
         <>
-          <Table items={addedItems} />
+          <TableWood items={addedItems} />
           <button onClick={handleSendToBackend} disabled={isSending}>
             Відправити на склад
           </button>

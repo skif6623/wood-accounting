@@ -11,6 +11,7 @@ export const RoundWoodItem: FC<roundWoodItem> = ({
   code,
   checked,
   status,
+  length,
 }) => {
   return (
     <>
@@ -22,6 +23,10 @@ export const RoundWoodItem: FC<roundWoodItem> = ({
         <TextWrap>
           <Title>Діаметр </Title>
           <p>{diametr}</p>
+        </TextWrap>
+        <TextWrap>
+        <Title>Довжина </Title>
+          <p>{length}</p>
         </TextWrap>
         <TextWrap>
           <Title>Кількість:</Title>

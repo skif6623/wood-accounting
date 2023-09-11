@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react';
 import { Container } from '../../components/Container/Container';
 import { ReusableInput } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
-import { Table } from '../../components/Table/Table';
+import { TableDesk } from '../../components/Table/TableDesk';
 import type { boardItem } from '../../redux/boardSlice';
 
 import {
@@ -13,6 +13,8 @@ import {
 } from './AddItems.styled';
 import axios from 'axios';
 
+export type random = Omit<boardItem, "_id">
+//  type Random = Omit<boardItem, "_id"> & { _id?: string };
 export const AddDeskItemsForm = () => {
   const [width, setWidth] = useState('0');
   const [height, setHeight] = useState('0');
@@ -22,7 +24,7 @@ export const AddDeskItemsForm = () => {
   const [code, setCode] = useState('');
   const [checked, setChecked] = useState(false);
   const [status, setStatus] = useState('на складі');
-  const [addedItems, setAddedItems] = useState<boardItem[]>([]);
+  const [addedItems, setAddedItems] = useState<random[]>([]);
   const [isSending, setIsSending] = useState(false);
 
   const isItems = addedItems.length !== 0 ? 'show' : 'hide';
@@ -30,23 +32,25 @@ export const AddDeskItemsForm = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (name === '' || code === '' || width === '' || amount === ''|| height === '') {
+    if (name === '' || code === '' || width === '' || amount === '' || height === '' || length ==='') {
       console.log('Заповніть всі поля');
       return;
     }
 
-      const newItem: boardItem = {
-    width: parseFloat(width),
-    height: parseFloat(height),
-    length: parseFloat(length),
-          amount: +amount,
-          code,
-          name,
-          checked,
-          status,
-          id: ''
+      const newItem: random = {
+        width: parseFloat(width),
+        height: parseFloat(height),
+        length: parseFloat(length),
+        amount: +amount,
+        code,
+        name,
+        checked,
+        status,
+        // _id: ''
       };
 
+    // delete newItem._id;
+    
     setAddedItems(prev => [...prev, newItem]);
     clearData();
   };
@@ -120,7 +124,7 @@ export const AddDeskItemsForm = () => {
       </Container>
       {isItems === 'show' && (
         <>
-          <Table items={addedItems} />
+          <TableDesk items={addedItems} />
           <button onClick={handleSendToBackend} disabled={isSending}>
             Відправити на склад
           </button>
@@ -129,3 +133,6 @@ export const AddDeskItemsForm = () => {
     </>
   );
 };
+
+
+
