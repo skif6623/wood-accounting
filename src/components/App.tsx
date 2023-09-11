@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { useAppSelector, useAppDispatch } from '../hooks/hooks';
 import { refreshCurrentUser } from '../redux/auth/operations';
@@ -14,13 +14,13 @@ import { AddWoodItemsForm } from '../Pages/AddItems/AddWoodItems';
 import { AddDeskItemsForm } from '../Pages/AddItems/AddDesksItems';
 import { RegisterPage } from '../Pages/RegisterPage/RegisterPage';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
-import { RootState } from '../redux/store';
-import { SearchRWprogress } from './RoundWood/SearchRWprogress/SearchRWprogress';
+// import { RootState } from '../redux/store';
+
 
 export const App: React.FC = () => {
-  const isLoggedIn = useAppSelector(
-    (state: RootState) => state.auth.isLoggedIn
-  );
+  // const isLoggedIn = useAppSelector(
+  //   (state: RootState) => state.auth.isLoggedIn
+  // );
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const App: React.FC = () => {
           <Route path="/choose-wood" element={<ChooseWoodType />} />
           <Route path="/round-wood" element={<AddWoodItemsForm />} />
           <Route path="/board-wood" element={<AddDeskItemsForm />} />
-          <Route path="/round-wood-progress" element={<SearchRWprogress />} />
+
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -48,3 +48,19 @@ export const App: React.FC = () => {
     </div>
   );
 };
+
+
+// put
+// https://avk-pallet-backend.onrender.com/api/desks/64f99bdc69a56760a17da78c
+
+
+    // {
+    //     "lenght": 27,
+    //     "width": 52,
+    //     "height": 54,
+    //     "name": "Береза",
+    //     "amount": 10,
+    //     "code": "1",
+    //     "checked": false,
+    //     "status": "на складі"
+    // }

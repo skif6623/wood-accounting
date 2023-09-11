@@ -14,38 +14,47 @@ type TablePropsType = {
   items: (roundWoodItem | boardItem)[];
 };
 
-export const Table: FC<TablePropsType> = ({ items }) => {
+export const TableDesk: FC<TablePropsType> = ({ items }) => {
   const data = useMemo(() => items, [items]);
 
-  const columns = [  
-    {
-      header: 'Назва',
-      accessorKey: 'name',
-      footer: 'Назва',
-    },
-    {
-      header: 'Діаметр',
-      accessorKey: 'diametr',
-      footer: 'Діаметр',
-    },
-    {
-      header: 'Кількість',
-      accessorKey: 'amount',
-      footer: 'Кількість',
-    },
-    {
-      header: 'Штрихкод',
-      accessorKey: 'code',
-      footer: 'Штрихкод',
-    },
-  ];
 
 
-
+    const columnsDesk = [
+        {
+            header: 'Назва',
+            accessorKey: 'name',
+            footer: 'Назва',
+        },
+        {
+            header: 'Ширина',
+            accessorKey: 'width',
+            footer: 'Ширина',
+        },
+        {
+            header: 'Товщина',
+            accessorKey: 'height',
+            footer: 'Товщина',
+        },
+        {
+            header: 'Довжина',
+            accessorKey: 'lenght',
+            footer: 'Довжина',
+        },
+        {
+            header: 'Кількість',
+            accessorKey: 'amount',
+            footer: 'Кількість',
+        },
+        {
+            header: 'Штрихкод',
+            accessorKey: 'code',
+            footer: 'Штрихкод',
+        },
+    ];
   
   const table = useReactTable({
     data: data,
-    columns: columns,
+    columns: columnsDesk,
     getCoreRowModel: getCoreRowModel(),
   });
   return (

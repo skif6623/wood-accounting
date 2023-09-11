@@ -3,6 +3,7 @@ import { boardSliceReducer } from './boardSlice';
 import { roundWoodReducer } from './roundWoodSlice';
 import { productionSliceReducer } from './productionSlice';
 import { authReducer } from './auth/authSlice';
+import { InProgressWoodReducer } from './InProgressWoodSlice';
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -21,6 +22,7 @@ export const store = configureStore({
     board: boardSliceReducer,
     roundWood: roundWoodReducer,
     production: productionSliceReducer,
+    inProgressWood: InProgressWoodReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: false,

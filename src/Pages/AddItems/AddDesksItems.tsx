@@ -2,7 +2,7 @@ import { useState, FormEvent } from 'react';
 import { Container } from '../../components/Container/Container';
 import { ReusableInput } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
-import { Table } from '../../components/Table/Table';
+import { TableDesk } from '../../components/Table/TableDesk';
 import type { boardItem } from '../../redux/boardSlice';
 
 import {
@@ -38,13 +38,13 @@ export const AddDeskItemsForm = () => {
       const newItem: boardItem = {
     width: parseFloat(width),
     height: parseFloat(height),
-    length: parseFloat(length),
+    lenght: parseFloat(length),
           amount: +amount,
           code,
           name,
           checked,
           status,
-          id: ''
+          _id: ''
       };
 
     setAddedItems(prev => [...prev, newItem]);
@@ -120,7 +120,7 @@ export const AddDeskItemsForm = () => {
       </Container>
       {isItems === 'show' && (
         <>
-          <Table items={addedItems} />
+          <TableDesk items={addedItems} />
           <button onClick={handleSendToBackend} disabled={isSending}>
             Відправити на склад
           </button>

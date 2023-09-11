@@ -7,12 +7,13 @@ import { TakeToWorkForm } from '../../TakeToWorkForm/TakeToWorkForm';
 export const BoardItem: FC<boardItem> = ({
   width,
   height,
-  length,
+  lenght,
   amount,
   name,
   code,
   checked,
   status,
+  _id,
 
 }) => {
   return (
@@ -24,7 +25,7 @@ export const BoardItem: FC<boardItem> = ({
         </TextWrap>
         <TextWrap>
           <Title>Довжинна </Title>
-          <p>{length}</p>
+          <p>{lenght}</p>
               </TextWrap>
         <Title>Ширина</Title>
           <p>{height}</p>
@@ -56,7 +57,7 @@ export const BoardItem: FC<boardItem> = ({
           <Title>Овнер=э:</Title>
           <p>{owner}</p>
         </TextWrap> */}
-        <TakeToWorkForm name={name} id={code} />
+        <TakeToWorkForm name={name} id={_id} />
       </Item>
     </>
   );

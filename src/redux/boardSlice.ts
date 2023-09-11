@@ -4,13 +4,14 @@ import {getBoard} from "./operations";
 export interface boardItem {
 	width: number;
 	height: number;
-	length: number;
+	lenght: number;
 	amount: number;
 	code: string;
-	id: string;
+	_id: string;
 	name: string;
 	checked: boolean;
 	status: string;
+
 }
 
 const initialState: boardItem[] = [];
