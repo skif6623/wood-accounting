@@ -11,7 +11,8 @@ interface InitialStateType {
   email: string | null;
   token: string | null;
   isLoggedIn: boolean;
-  // isRefreshing: boolean;
+  isRefreshing: boolean;
+  isRegister: boolean;
 }
 
 const initialState: InitialStateType = {
@@ -19,6 +20,8 @@ const initialState: InitialStateType = {
   email: null,
   token: null,
   isLoggedIn: false,
+  isRefreshing: false,
+  isRegister: false,
 };
 
 const authSlice = createSlice({
@@ -31,6 +34,7 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.name = action.payload.name;
         state.email = action.payload.email;
+        state.isRegister = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.name = action.payload.name;
@@ -46,10 +50,14 @@ const authSlice = createSlice({
         state.token = null;
         state.isLoggedIn = false;
       })
+      .addCase(refreshCurrentUser.pending, (state, action) => {
+        state.isRefreshing = true;
+      })
       .addCase(refreshCurrentUser.fulfilled, (state, action) => {
         state.name = action.payload.name;
         state.email = action.payload.email;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       }),
 });
 

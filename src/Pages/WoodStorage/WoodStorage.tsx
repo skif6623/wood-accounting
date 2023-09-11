@@ -10,8 +10,8 @@ export const WoodStorage: FC = () => {
     <>
       <LinkWrap>
         <Link to="/">Кругляк</Link>
-        <Link to="board">Дошка</Link>
-        <Link to="pallets">Палети</Link>
+        <Link to="/board">Дошка</Link>
+        <Link to="/pallets">Палети</Link>
       </LinkWrap>
       <StorageTable>
         <Outlet />
