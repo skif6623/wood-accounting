@@ -13,7 +13,7 @@ export interface InProgressWood {
 
 const initialState: InProgressWood[] = [];
 
-export const roundWoodSlice = createSlice({
+export const inProgressWoodSlice = createSlice({
   name: "inProgressWood",
   initialState: initialState,
   reducers: {},
@@ -24,6 +24,6 @@ export const roundWoodSlice = createSlice({
   },
 });
 
-export const InProgressWoodReducer = roundWoodSlice.reducer;
+export const InProgressWoodReducer = inProgressWoodSlice.reducer;
 
 

@@ -4,9 +4,10 @@ import { roundWoodReducer } from './roundWoodSlice';
 import { productionSliceReducer } from './productionSlice';
 import { authReducer } from './auth/authSlice';
 import { InProgressWoodReducer } from './InProgressWoodSlice';
-
+import { InProgressDeskReducer } from './inProgressDeskSlice';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 
 const persistConfig = {
   key: 'auth',
@@ -23,6 +24,7 @@ export const store = configureStore({
     roundWood: roundWoodReducer,
     production: productionSliceReducer,
     inProgressWood: InProgressWoodReducer,
+    InProgressDesk: InProgressDeskReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: false,

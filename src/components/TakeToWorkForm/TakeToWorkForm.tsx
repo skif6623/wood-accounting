@@ -3,7 +3,7 @@ import { Button } from '../Button/Button';
 import { ReusableInput } from '../Input/Input';
 import { Form } from './TakeToWorkForm.styled';
 import axios from 'axios';
-import { log } from 'console';
+
 
 interface TakeToWorkProps {
   name: string;

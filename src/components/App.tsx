@@ -14,6 +14,8 @@ import { AddWoodItemsForm } from '../Pages/AddItems/AddWoodItems';
 import { AddDeskItemsForm } from '../Pages/AddItems/AddDesksItems';
 import { RegisterPage } from '../Pages/RegisterPage/RegisterPage';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
+import { InProgress } from './InProgress/InProgress';
+
 // import { RootState } from '../redux/store';
 
 
@@ -39,6 +41,7 @@ export const App: React.FC = () => {
           <Route path="/choose-wood" element={<ChooseWoodType />} />
           <Route path="/round-wood" element={<AddWoodItemsForm />} />
           <Route path="/board-wood" element={<AddDeskItemsForm />} />
+          <Route path="/woodProcesing" element={<InProgress />} />
 
         </Route>
         <Route path="/login" element={<LoginPage />} />

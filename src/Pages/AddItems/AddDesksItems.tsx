@@ -14,7 +14,7 @@ import {
 import axios from 'axios';
 
 export type random = Omit<boardItem, "_id">
-//  type Random = Omit<boardItem, "_id"> & { _id?: string };
+
 export const AddDeskItemsForm = () => {
   const [width, setWidth] = useState('0');
   const [height, setHeight] = useState('0');
