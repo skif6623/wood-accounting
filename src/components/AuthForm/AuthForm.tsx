@@ -84,7 +84,7 @@ export const AuthForm: FC<AuthFormPropsTypes> = ({ type }) => {
         </button>
 
         {type === 'login' ? (
-          <Link to="/">Реєстрація</Link>
+          <Link to="/register">Реєстрація</Link>
         ) : (
           <Link to="/login">Логін</Link>
         )}
