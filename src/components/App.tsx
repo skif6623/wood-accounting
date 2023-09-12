@@ -73,7 +73,10 @@ export const App: React.FC = () => {
           path="/board-wood"
           element={<PrivateRoute component={AddDeskItemsForm} to="/login" />}
         />
-        <Route path="/woodProcesing" element={<InProgress />} />
+        <Route
+          path="/woodProcesing"
+          element={<PrivateRoute component={InProgress} to="/login" />}
+        />
         <Route path="*" element={<p>тут ніхуя нема скільки не дивись</p>} />
       </Route>
     </Routes>
