@@ -8,3 +8,4 @@ export const boardSelector = (state: RootState) => state.board;
 export const roundWoodSelector = (state: RootState) => state.roundWood;
 export const productionSlector = (state: RootState) => state.production;
 export const inProgressWoodSlector = (state: RootState) => state.inProgressWood;
+export const inProgressDeskSlector = (state: RootState) => state.InProgressDesk;

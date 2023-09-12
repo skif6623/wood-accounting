@@ -9,10 +9,11 @@ import { CustomTable, CustomTr } from './Table.styled';
 
 import type { roundWoodItem } from '../../redux/roundWoodSlice';
 import type { boardItem } from '../../redux/boardSlice';
-import type { random } from '../../Pages/AddItems/AddDesksItems';
+import type { woodWithoutId } from '../../Pages/AddItems/AddWoodItems';
 type TablePropsType = {
-  items: (roundWoodItem | boardItem | random)[];
+  items: (roundWoodItem | boardItem | woodWithoutId)[];
 };
+
 
 export const TableWood: FC<TablePropsType> = ({ items }) => {
   const data = useMemo(() => items, [items]);

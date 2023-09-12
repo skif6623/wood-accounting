@@ -3,7 +3,6 @@ import { Container } from '../../components/Container/Container';
 import { ReusableInput } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { TableWood } from '../../components/Table/TableWood';
-
 import type { roundWoodItem } from '../../redux/roundWoodSlice';
 
 import {
@@ -14,6 +13,8 @@ import {
 } from './AddItems.styled';
 import axios from 'axios';
 
+export type woodWithoutId = Omit<roundWoodItem, "_id">
+
 export const AddWoodItemsForm = () => {
   const [diametr, setDiametr] = useState('');
   const [amount, setAmount] = useState('');
@@ -22,7 +23,7 @@ export const AddWoodItemsForm = () => {
   const [length, setLength] = useState('');
   const [checked, setChecked] = useState(false);
   const [status, setStatus] = useState('на складі');
-  const [addedItems, setAddedItems] = useState<roundWoodItem[]>([]);
+  const [addedItems, setAddedItems] = useState<woodWithoutId[]>([]);
   const [isSending, setIsSending] = useState(false);
 
   const isItems = addedItems.length !== 0 ? 'show' : 'hide';
@@ -35,7 +36,7 @@ export const AddWoodItemsForm = () => {
       return;
     }
 
-    const newItem: roundWoodItem = {
+    const newItem: woodWithoutId = {
       diametr: +diametr,
       amount: +amount,
       length: +length,
@@ -68,6 +69,7 @@ export const AddWoodItemsForm = () => {
 
   const clearData = () => {
     setDiametr('');
+    setLength('');
     setAmount('');
     setName('');
     setCode('');

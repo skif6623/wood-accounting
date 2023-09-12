@@ -13,6 +13,7 @@ import { AddWoodItemsForm } from '../Pages/AddItems/AddWoodItems';
 import { AddDeskItemsForm } from '../Pages/AddItems/AddDesksItems';
 import { RegisterPage } from '../Pages/RegisterPage/RegisterPage';
 import { LoginPage } from '../Pages/LoginPage/LoginPage';
+import { InProgress } from './InProgress/InProgress';
 // import { SearchRWprogress } from './RoundWood/SearchRWprogress/SearchRWprogress';
 import { StorageRoute } from './Routes/StorageRoute';
 import { BoardRoute } from './Routes/BoardRoute';
@@ -72,6 +73,8 @@ export const App: React.FC = () => {
           path="/board-wood"
           element={<PrivateRoute component={AddDeskItemsForm} to="/login" />}
         />
+        <Route path="/woodProcesing" element={<InProgress />} />
+        <Route path="*" element={<p>тут ніхуя нема скільки не дивись</p>} />
       </Route>
     </Routes>
   );

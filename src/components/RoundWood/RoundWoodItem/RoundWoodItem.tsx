@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Item, TextWrap, Title } from './RoundWoodItem.styled';
 
 import type { roundWoodItem } from '../../../redux/roundWoodSlice';
-import { TakeToWorkForm } from '../../TakeToWorkForm/TakeToWorkForm';
+import { TakeWoodToWorkForm } from '../../TakeToWorkForm/TakeWoodToWorkForm';
 
 export const RoundWoodItem: FC<roundWoodItem> = ({
   diametr,
@@ -12,6 +12,7 @@ export const RoundWoodItem: FC<roundWoodItem> = ({
   checked,
   status,
   length,
+  _id,
 }) => {
   return (
     <>
@@ -44,7 +45,7 @@ export const RoundWoodItem: FC<roundWoodItem> = ({
           <Title>Штрихкод:</Title>
           <p>{code}</p>
         </TextWrap>
-        <TakeToWorkForm name={name} id={code} />
+        <TakeWoodToWorkForm name={name} id={_id} length={length} diametr={diametr} amount={amount} checked={checked} status={status} code={code} />
       </Item>
     </>
   );

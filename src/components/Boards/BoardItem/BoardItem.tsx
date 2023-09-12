@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 
 import type { boardItem } from '../../../redux/boardSlice';
 import { TakeToWorkForm } from '../../TakeToWorkForm/TakeToWorkForm';
+import { TakeDeskToWorkForm } from '../../TakeToWorkForm/TakeDeskToWorkForm';
 
 export const BoardItem: FC<boardItem> = ({
   width,
@@ -57,7 +58,8 @@ export const BoardItem: FC<boardItem> = ({
           <Title>Овнер=э:</Title>
           <p>{owner}</p>
         </TextWrap> */}
-        <TakeToWorkForm name={name} id={_id} />
+        <TakeDeskToWorkForm name={name} id={_id} length={length} width={width} height={height} amount={amount} checked={false} status={status} code={code} />
+        
       </Item>
     </>
   );
