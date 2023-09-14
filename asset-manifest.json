@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/wood-accounting/static/css/main.843ff83e.css",
-    "main.js": "/wood-accounting/static/js/main.91be4ac0.js",
+    "main.js": "/wood-accounting/static/js/main.9e3db7b3.js",
     "static/media/logo.png": "/wood-accounting/static/media/logo.7245da556e61a83bbc52.png",
     "static/media/sprite.svg": "/wood-accounting/static/media/sprite.731d457315a17bd6167c79202663688c.svg",
     "index.html": "/wood-accounting/index.html",
     "main.843ff83e.css.map": "/wood-accounting/static/css/main.843ff83e.css.map",
-    "main.91be4ac0.js.map": "/wood-accounting/static/js/main.91be4ac0.js.map"
+    "main.9e3db7b3.js.map": "/wood-accounting/static/js/main.9e3db7b3.js.map"
   },
   "entrypoints": [
     "static/css/main.843ff83e.css",
-    "static/js/main.91be4ac0.js"
+    "static/js/main.9e3db7b3.js"
   ]
 }
