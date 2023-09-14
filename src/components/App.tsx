@@ -77,7 +77,7 @@ export const App: React.FC = () => {
           path="/woodProcesing"
           element={<PrivateRoute component={InProgress} to="/login" />}
         />
-        <Route path="*" element={<p>тут ніхуя нема скільки не дивись</p>} />
+        <Route path="*" element={<p>тут нічого нема скільки не дивись</p>} />
       </Route>
     </Routes>
   );
