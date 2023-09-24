@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { useAppDispatch } from '../hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../hooks/hooks';
 import { refreshCurrentUser } from '../redux/auth/operations';
+import { refreshSelector } from '../redux/selectors';
 
 import { PrivateRoute } from './Routes/PrivateRoute';
 import { RestrictedRoute } from './Routes/RestrictedRoute';
@@ -19,14 +20,15 @@ import { StorageRoute } from './Routes/StorageRoute';
 import { BoardRoute } from './Routes/BoardRoute';
 import { PalletsRoute } from './Routes/PalletsRoute';
 
-export const App: React.FC = () => {
+export const App = () => {
   const dispatch = useAppDispatch();
+  const isRefreshing = useAppSelector(refreshSelector);
 
   useEffect(() => {
     dispatch(refreshCurrentUser());
   }, [dispatch]);
 
-  return (
+  return !isRefreshing ? (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route
@@ -80,5 +82,5 @@ export const App: React.FC = () => {
         <Route path="*" element={<p>тут нічого нема скільки не дивись</p>} />
       </Route>
     </Routes>
-  );
+  ) : null;
 };
